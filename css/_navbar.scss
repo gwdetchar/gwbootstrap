@@ -1,0 +1,183 @@
+// Bootstrap navbar for LIGO
+
+$navbar-background-color: #555;
+$navbar-background-color-dark: darken($navbar-background-color, 5%);
+$navbar-color: #eee;
+$navbar-color-focus: white;
+
+// set colour scheme
+@mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: white) {
+		// set background colour
+		background-color: #fff;
+		@include background-panel($background-color, 51px);
+
+		// set text colour
+		.navbar-brand,
+		.navbar-text {
+				color: $text-color;
+		}
+		.navbar-nav > li > a,
+		.navbar-nav > li.disabled > a {
+				color: #777;
+				@media (min-width: $container-lg) {
+					color: $text-color;
+				}
+		}
+
+		// set focus colours
+		a.navbar-brand,
+		a.navbar-text,
+		.step-forward,
+		.step-back,
+		#calendar {
+				&:hover,
+				&:active,
+				&:focus {
+						color: $text-focus-color;
+						background-color: darken($background-color, 5%);
+				}
+		}
+		.navbar-nav > li > a,
+		.dropdown > a,
+		.dropdown.open a {
+				&:hover,
+				&:active,
+				&:focus {
+						color: black;
+						background-color: #f5f5f5;
+						@media (min-width: $container-lg) {
+								color: $text-focus-color;
+								background-color: darken($background-color, 5%);
+						}
+				}
+		}
+
+		// format icon-bar
+		.navbar-toggle {
+				> .icon-bar {
+						background-color: $text-color;
+				}
+				&:hover > .icon-bar {
+						background-color: $text-focus-color;
+				}
+		}
+}
+
+.navbar {
+		// set material-design-like shadow
+		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
+
+		// set colour scheme
+		@include navbar-colour-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
+
+		/* set relative positioning to enable right-floating dropdown boxes */
+		> .container {
+				position: relative;
+		}
+
+		// format icon-bar
+		.navbar-toggle {
+				> .icon-bar {
+						margin-top: 2px;
+						width: 15px;
+				}
+		}
+
+		// format navbar entries
+		.navbar-brand,
+		.navbar-text,
+		.navbar-nav > li > a,
+		.navbar-nav > li.disabled > a {
+				font-size: 16px;
+				padding-left: 10px;
+				padding-right: 10px;
+		}
+		.btn-group.open .dropdown-toggle {
+				box-shadow: none;
+				-webkit-box-shadow: none;
+		}
+		.navbar-brand {
+				padding-left: 10px;
+				padding-right: 10px;
+		}
+
+		// position dropdown menus relative to parent
+		.dropdown-menu,
+		.navbar-nav .open .dropdown-menu {
+				@include no-text-select();
+				cursor: pointer;
+				padding: {
+						top: 5px;
+						left: 0px;
+				}
+				margin: {
+						top: 1px;
+						left: 0px;
+				}
+				border: {
+						top: 1px solid #ccc;
+						top-left-radius: 0;
+						top-right-radius: 0;
+				}
+				/*> li a {
+						display: block;
+						padding: 3px 20px;
+						clear: both;
+						font-weight: normal;
+						line-height: 1.42857143;
+						color: #333333;
+						white-space: nowrap;
+				}*/
+		}
+		.navbar-nav .open {
+				@media (max-width: $container-lg + -1px) {
+						border-bottom: none;
+						.dropdown-menu {
+								border: {
+										bottom: 1px solid gray;
+										top: 1px solid gray;
+										radius: 0px;
+								}
+						}
+				}
+		}
+
+		// format dropdown-menu items
+		.dropdown-menu > li {
+				> ul {
+						padding-left: 0px;
+				}
+				> ul:last-child {
+						padding-right: 0px;
+				}
+				a {
+						text-decoration: none;
+						display: block;
+						font-weight: inherit;
+						color: inherit;
+						padding: 3px 20px;
+				}
+		}
+
+		// format multi-column dropdown menu
+		.dropdown-2-col {
+				min-width: 320px;
+		}
+		.dropdown-3-col {
+				min-width: 480px;
+		}
+		.dropdown-4-col {
+				min-width: 640px;
+		}
+		.dropdown-5-col {
+				min-width: 800px;
+		}
+		.dropdown-6-col {
+				min-width: 960px;
+		}
+
+		// format caret
+		.caret {
+				margin-left: 4px;
+		}
+}

@@ -1,0 +1,26 @@
+// _panels.scss
+// styling for accordion panels
+
+#accordion {
+		padding-top: 10px;
+}
+
+.panel {
+		margin-top: 10px;
+		padding: 0;
+
+		a {
+				color: inherit !important;
+				text-decoration: none;
+				padding-top: 10px;
+		}
+}
+
+.panel-primary .panel-heading {
+		color: #fff;
+}
+
+.panel-body {
+		padding-bottom: 5px;
+}
+

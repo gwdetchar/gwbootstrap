@@ -1,0 +1,32 @@
+// _scaffold.scss
+
+.scaffold {
+		background-color: white;
+
+		// place dividers between the plots
+		@media (min-width: 992px) {
+				.row > div:after {
+						content: "";
+						background: #eee;
+						position: absolute;
+						bottom: 20%;
+						right: 0;
+						height: 60%;
+						width: 1px;
+				}
+				.row > div:last-child:after {
+						content: none;
+				}
+		}
+}
+
+.well {
+		padding: 19px;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+		border-radius: 0px;
+		border: 0;
+
+		@media (min-width: 768px) {
+				border-radius: 2px;
+		}
+}
