@@ -1,9 +1,9 @@
 // _ifos.scss - IFO-specific colour schemes
 
 // set colour scheme for each IFO
-.navbar-h1 { @include navbar-colour-scheme(#ee0000); }
-.navbar-l1 { @include navbar-colour-scheme(#4ba6ff); }
-.navbar-virgo { @include navbar-colour-scheme(#9b59b6); }
-.navbar-geo600 { @include navbar-colour-scheme(#555); }
-.navbar-kagra { @include navbar-colour-scheme(#ffb200); }
-.navbar-ligo-india { @include navbar-colour-scheme(#2ecc71); }
+.navbar-h1 { @include navbar-colour-scheme(#ee0000); }  // LIGO Hanford
+.navbar-l1 { @include navbar-colour-scheme(#4ba6ff); }  // LIGO Livingston
+.navbar-v1 { @include navbar-colour-scheme(#9b59b6); }  // Virgo
+.navbar-g1 { @include navbar-colour-scheme(#555); }     // GEO600
+.navbar-k1 { @include navbar-colour-scheme(#ffb200); }  // KAGRA
+.navbar-i1 { @include navbar-colour-scheme(#2ecc71); }  // LIGO India
