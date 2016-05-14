@@ -181,3 +181,8 @@ $navbar-color-focus: white;
 				margin-left: 4px;
 		}
 }
+
+// accommodate navbar height in
+.navbar-fixed-top + .container {
+		padding-top: 50px;
+}
