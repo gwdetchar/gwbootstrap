@@ -1,4 +1,7 @@
 // _variables.scss
 
+$container-sm: 768px;
 $container-md: 992px;
 $container-lg: 1200px;
+
+$navbar-breakpoint: $container-sm;

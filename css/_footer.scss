@@ -3,21 +3,26 @@
 $footer-height: 140px;
 $footer-padding: 20px;
 
-#wrap {
+html {
+		position: relative;
 		min-height: 100%;
 }
 
-#main {
-		padding-bottom: $footer-height + $footer-padding + 1px;
-		box-shadow: 0 1px 10px 2px -2px rgba(0, 0, 0, 0.1);
+body {
+		margin-bottom: $footer-height + $footer-padding;
+}
+
+.footer {
+		position: absolute;
+		bottom: 0;
+		width:100%;
+		height: $footer-height;
+		padding-top: $footer-padding;
+		padding-bottom: $footer-padding;
 }
 
 footer {
-		position: relative;
 		clear: both;
-		height: $footer-height;
-		margin-top: -$footer-height;
-		padding-top: $footer-padding;
 		font-size: small;
 		border-top: 1px solid gray;
 		background-color: #555;

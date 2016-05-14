@@ -11,6 +11,15 @@ $navbar-color-focus: white;
 		background-color: #fff;
 		@include background-panel($background-color, 51px);
 
+		// format div
+		.container-fluid > .navbar-collapse,
+		.container-fluid > .navbar-header,
+		.container > .navbar-collapse,
+		.container > .navbar-header {
+				margin-left: 0px;
+				margin-right: 0px;
+		}
+
 		// set text colour
 		.navbar-brand,
 		.navbar-text {
@@ -19,7 +28,7 @@ $navbar-color-focus: white;
 		.navbar-nav > li > a,
 		.navbar-nav > li.disabled > a {
 				color: #777;
-				@media (min-width: $container-lg) {
+				@media (min-width: $container-sm) {
 					color: $text-color;
 				}
 		}
@@ -45,7 +54,7 @@ $navbar-color-focus: white;
 				&:focus {
 						color: black;
 						background-color: #f5f5f5;
-						@media (min-width: $container-lg) {
+						@media (min-width: $container-sm) {
 								color: $text-focus-color;
 								background-color: darken($background-color, 5%);
 						}
@@ -89,16 +98,16 @@ $navbar-color-focus: white;
 		.navbar-nav > li > a,
 		.navbar-nav > li.disabled > a {
 				font-size: 16px;
-				padding-left: 10px;
-				padding-right: 10px;
+				padding-left: 6px;
+				padding-right: 6px;
+				@media (min-width: $container-lg) {
+						padding-left: 10px;
+						padding-right: 10px;
+				}
 		}
 		.btn-group.open .dropdown-toggle {
 				box-shadow: none;
 				-webkit-box-shadow: none;
-		}
-		.navbar-brand {
-				padding-left: 10px;
-				padding-right: 10px;
 		}
 
 		// position dropdown menus relative to parent
@@ -176,13 +185,9 @@ $navbar-color-focus: white;
 				min-width: 960px;
 		}
 
-		// format caret
-		.caret {
-				margin-left: 4px;
-		}
 }
 
-// accommodate navbar height in
+// accommodate navbar height in 
 .navbar-fixed-top + .container {
 		padding-top: 50px;
 }

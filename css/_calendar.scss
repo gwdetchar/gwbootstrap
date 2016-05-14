@@ -26,6 +26,13 @@
 				padding-left: 5px;
 				padding-right: 5px;
 				background-color: transparent;
+				@media (min-width: $container-sm) {
+						
+				}
+		}
+
+		.step-forward {
+				margin-left: -15px;
 		}
 
 		a.step-forward:hover,
@@ -38,20 +45,5 @@
 
 		.datepicker {
 				margin-left: 0px;
-		}
-
-		@media (max-width: 1199px) {
-				.step-forward,
-				.step-back {
-						padding-left: 5px;
-						padding-right: 5px;
-				}
-				.step-back {
-						margin-left: 0px;
-				}
-				.step-forward {
-						margin-left: -15px;
-						padding-left: 0px;
-				}
 		}
 }

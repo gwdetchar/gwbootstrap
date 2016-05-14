@@ -17,4 +17,7 @@
 		background-image: linear-gradient(to top, $color 0%, $color 100%);
 		background-size: 100% $height;
 		background-repeat: no-repeat;
+		@media (min-width: $navbar-breakpoint) {
+				background-color: $color;
+		}
 }
