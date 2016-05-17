@@ -31,10 +31,6 @@ footer {
 				color: #ccc;
 		}
 
-		a:hover {
-				text-decoration: underline;
-		}
-
 		> .container {
 				margin-top: 20px;
 				margin-bottom: 20px;
@@ -47,6 +43,7 @@ footer {
 		}
 
 		a:hover {
+				text-decoration: underline;
 				color: white;
 		}
 }
