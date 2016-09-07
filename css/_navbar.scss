@@ -197,19 +197,29 @@ $navbar-color-focus: white;
 
 		// format multi-column dropdown menu
 		.dropdown-2-col {
-				min-width: 320px;
+				@media (min-width: $container-sm) {
+						min-width: 320px;
+				}
 		}
 		.dropdown-3-col {
-				min-width: 480px;
+				@media (min-width: $container-sm) {
+						min-width: 480px;
+				}
 		}
 		.dropdown-4-col {
-				min-width: 640px;
+				@media (min-width: $container-sm) {
+						min-width: 640px;
+				}
 		}
 		.dropdown-5-col {
-				min-width: 800px;
+				@media (min-width: $container-sm) {
+						min-width: 800px;
+				}
 		}
 		.dropdown-6-col {
-				min-width: 960px;
+				@media (min-width: $container-sm) {
+						min-width: 960px;
+				}
 		}
 
 }
