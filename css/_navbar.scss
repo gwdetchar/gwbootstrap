@@ -80,6 +80,7 @@ $navbar-color-focus: white;
 
 		// format icon-bar
 		.navbar-toggle {
+				margin-right: 0px;
 				> .icon-bar {
 						background-color: $text-color;
 				}
