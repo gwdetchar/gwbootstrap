@@ -93,6 +93,7 @@ $navbar-color-focus: white;
 		// set material-design-like shadow
 		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
 
+
 		// set colour scheme
 		@include navbar-colour-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
 
@@ -114,7 +115,9 @@ $navbar-color-focus: white;
 		.navbar-text,
 		.navbar-nav > li > a,
 		.navbar-nav > li.disabled > a {
-				font-size: 16px;
+				font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+				font-weight: 400;
+				font-size: 15px;
 				padding-left: 6px;
 				padding-right: 6px;
 				@media (min-width: $container-lg) {
@@ -125,6 +128,10 @@ $navbar-color-focus: white;
 		.btn-group.open .dropdown-toggle {
 				box-shadow: none;
 				-webkit-box-shadow: none;
+		}
+
+		.dropdown-header {
+				font-weight: bold;
 		}
 
 		// position dropdown menus relative to parent
@@ -182,6 +189,9 @@ $navbar-color-focus: white;
 						font-weight: inherit;
 						color: inherit;
 						padding: 3px 20px;
+						&:hover {
+								font-weight: bold;
+						}
 				}
 		}
 
