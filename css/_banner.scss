@@ -6,9 +6,10 @@
 
 		h1 {
 				font-size: 36px;
-				margin-left: 50px;
+				margin-left: 10px;
 
 				@media (min-width: 992px) {
+						margin-left: 50px;
 						font-size: 48px;
 				}
 		}
