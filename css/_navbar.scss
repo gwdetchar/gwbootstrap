@@ -22,7 +22,10 @@ $navbar-color-focus: white;
 
 		// set text colour
 		.navbar-brand,
-		.navbar-text {
+		.navbar-text,
+		.step-forward,
+		.step-back,
+		#calendar {
 				color: $text-color;
 		}
 		.navbar-nav > li > a,
