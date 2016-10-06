@@ -7,3 +7,6 @@
 .navbar-g1 { @include navbar-colour-scheme(#555); }     // GEO600
 .navbar-k1 { @include navbar-colour-scheme(#ffb200); }  // KAGRA
 .navbar-i1 { @include navbar-colour-scheme(#2ecc71); }  // LIGO India
+
+// colour scheme for network pages
+.navbar-network { @include navbar-colour-scheme(#668888); }
