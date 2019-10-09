@@ -1,0 +1,9 @@
+language: sass
+
+before_install:
+  - npm -g install acorn sass stylelint stylelint-config-sass-guidelines
+
+script:
+  - stylelint --quiet sass/*.scss
+  - sass sass/gwbootstrap.scss gwbootstrap.css && rm -f gwbootstrap.css
+  - acorn --silent js/*.js
