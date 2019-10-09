@@ -5,5 +5,5 @@ before_install:
 
 script:
   - stylelint --quiet sass/*.scss
-  - sass sass/gwbootstrap.scss gwbootstrap.css && rm -f gwbootstrap.css
+  - sass --style compressed sass/gwbootstrap.scss
   - acorn --silent js/*.js
