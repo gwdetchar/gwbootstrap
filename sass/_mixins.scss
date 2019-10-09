@@ -1,0 +1,16 @@
+// _mixins.scss
+
+@mixin no-text-select() {
+  user-select: none;
+}
+
+@mixin background-panel($color, $height) {
+  background-image: none;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, $color), color-stop(1, $color));
+  background-image: linear-gradient(to top, $color 0%, $color 100%);
+  background-repeat: no-repeat;
+  background-size: 100% $height;
+  @media (min-width: $navbar-breakpoint) {
+    background-color: $color;
+  }
+}

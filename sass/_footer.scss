@@ -1,0 +1,54 @@
+// _footer.scss
+
+$footer-height: 140px;
+$footer-padding: 20px;
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin-bottom: $footer-height + $footer-padding * 2;
+}
+
+.footer {
+  bottom: 0;
+  height: $footer-height;
+  padding-bottom: $footer-padding;
+  padding-top: $footer-padding;
+  position: absolute;
+  width: 100%;
+}
+
+footer {
+  background-color: #555;
+  border-top: 1px solid #808080;
+  clear: both;
+  font-size: small;
+
+  &,
+  a {
+    color: #eee;
+  }
+
+  > .container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  p,
+  a {
+    margin: 0;
+    padding: 2px 0;
+  }
+
+  p {
+    display: block;
+  }
+
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}

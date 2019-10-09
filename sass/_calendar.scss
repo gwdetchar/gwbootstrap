@@ -1,0 +1,49 @@
+/* ------------------------------------------------------------------------- */
+/* CALENDAR                                                                  */
+
+.navbar {
+  #calendar,
+  .step-forward,
+  .step-back {
+    @include no-text-select();
+    color: $navbar-color;
+    cursor: pointer;
+  }
+
+  #calendar {
+    margin-left: -17px;
+    margin-right: -1px;
+    padding-left: 22px;
+    padding-right: 23px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .step-forward,
+  .step-back {
+    background-color: transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    z-index: 1;
+    @media (min-width: $container-sm) {
+      /* this line left intentionally blank */
+    }
+  }
+
+  .step-forward {
+    margin-left: -15px;
+  }
+
+  a > step-forward:hover,
+  a > step-back:hover,
+  #calendar:active,
+  #calendar:hover, {
+    background-color: $navbar-background-color-dark;
+    color: $navbar-color-focus;
+  }
+
+  .datepicker {
+    margin-left: 0;
+  }
+}
