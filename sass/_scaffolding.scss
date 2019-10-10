@@ -24,7 +24,7 @@
   background-color: #fff;
 
   // place dividers between the plots
-  @media (min-width: 992px) {
+  @media (min-width: $container-md) {
     .row > div::after {
       background: #eee;
       bottom: 20%;
@@ -47,7 +47,7 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
   padding: 19px;
 
-  @media (min-width: 768px) {
+  @media (min-width: $container-sm) {
     border-radius: 2px;
   }
 }

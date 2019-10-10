@@ -165,7 +165,7 @@ $navbar-color-focus: #fff;
       padding-right: 20px;
       white-space: normal;
     }
-    @media (min-width: 768px) {
+    @media (min-width: $container-sm) {
       position: absolute;
       right: 0;
     }
@@ -220,7 +220,7 @@ $navbar-color-focus: #fff;
   // map page to another observatory
   .base-map {
     padding-right: 5px;
-    @media (min-width: 768px) {
+    @media (min-width: $container-sm) {
       margin-right: 10px;
     }
 
@@ -242,7 +242,7 @@ $navbar-color-focus: #fff;
           visibility: hidden;
         }
       }
-      @media (min-width: 768px) {
+      @media (min-width: $container-sm) {
         margin-left: -15px;
         min-width: 52px;
       }
@@ -256,7 +256,7 @@ $navbar-color-focus: #fff;
       padding-right: 20px;
       white-space: normal;;
     }
-    @media (min-width: 768px) {
+    @media (min-width: $container-sm) {
       position: absolute;
       right: 0;
     }
