@@ -1,3 +1,0 @@
-include README.rst LICENSE MANIFEST.in
-recursive-include sass *.scss
-recursive-include js *.js

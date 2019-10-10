@@ -32,6 +32,13 @@ body {
   margin-bottom: $footer-height + $footer-padding * 2;
 }
 
+.icon-bar a {
+  color: #d6d6d6;
+  font-size: 25px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
 .footer {
   bottom: 0;
   height: $footer-height;
@@ -45,7 +52,12 @@ footer {
   background-color: #555;
   border-top: 1px solid #808080;
   clear: both;
-  font-size: small;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
 
   &,
   a {
