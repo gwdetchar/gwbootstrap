@@ -37,7 +37,7 @@ proposing additions and making changes.
 
 .. _LIGO-Hanford: https://www.ligo.caltech.edu/WA
 .. _LIGO-Livingston: https://www.ligo.caltech.edu/LA
-.. _Virgo: https://www.virgo-gw.eu
+.. _Virgo: http://www.virgo-gw.eu
 .. _GEO600: https://www.geo600.org
 .. _KAGRA: https://gwcenter.icrr.u-tokyo.ac.jp/en/
 .. _LIGO-India: https://www.ligo-india.in
