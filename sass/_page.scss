@@ -65,14 +65,14 @@ img {
 
 .desktop-only {
   @media(max-width:991px) {
-    display:none;
+    display: none;
   }
 }
 
 .dropdown-1-col {
-  white-space: nowrap;
   max-height: 700px;
   overflow-y: scroll;
+  white-space: nowrap;
 }
 
 // container widths
@@ -91,8 +91,8 @@ img {
 
 // floating buttons
 .btn-group {
-  margin-top: 0px;
   margin-bottom: 6px;
+  margin-top: 0;
   @media(max-width:991px) {
     float: left;
   }
@@ -102,46 +102,45 @@ img {
 }
 
 .btn-table {
-  margin-top: -15px;
   margin-bottom: 15px;
+  margin-top: -15px;
 }
 
 .btn-float {
   @media(max-width:991px) {
-    display:none;
+    display: none;
   }
   @media(min-width:992px) {
-    display: inline-flex;
-    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #555;
     border-radius: 100%;
-    position: fixed;
-    width: 50px;
-    height: 50px;
     bottom: 37px;
-    right: 90px;
-    z-index: 99;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23),;
     // text elements
     color: #555;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
     font-size: 28px;
     font-weight: 300;
-    align-items: center;
+    height: 50px;
     justify-content: center;
-    text-decoration: none;
     // appearance
     outline: none;
-    cursor: pointer;
-    border: 2px solid #555;
-    background-color: white;
+    position: fixed;
+    right: 90px;
+    text-decoration: none;
     transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;
-    box-shadow: 0 1px 10px rgba(0,0,0,0.23),
+    width: 50px;
+    z-index: 99;
   }
 }
 
 .btn-float:hover {
   @media(min-width:992px) {
-    color: white;
     background-color: #555;
-    border: 2px solid white;
+    border: 2px solid #fff;
+    color: #fff;
   }
 }
