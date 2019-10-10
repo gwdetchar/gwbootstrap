@@ -20,8 +20,38 @@
 // _image.scss
 // styling for SVG images
 
+.img-responsive:hover {
+  cursor: url('https://www.google.com/intl/en_ALL/mapfiles/openhand.cur'), all-scroll;
+  cursor: grab;
+}
+
 .svg-wrapper {
   max-height: 600px;
   max-width: 1200px;
   width: 100%;
+}
+
+// LIGO-software-specific elements
+// detchar stuff
+#idq img,
+#upv img {
+  width: auto;
+}
+
+#upv font {
+  color: #000;
+}
+
+#idq > h1:first-of-type,
+#idq > hr:first-of-type,
+#idq > p:first-of-type {
+  display: none;
+}
+
+#stamp-pem .fancybox-iframe {
+  height: 1000px;
+  transform: scale(0.55);
+  transform-origin: 0 0;
+  width: 1800px;
+  zoom: 1;
 }

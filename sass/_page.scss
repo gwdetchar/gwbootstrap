@@ -63,6 +63,10 @@ img {
   margin: 0 auto;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .desktop-only {
   @media(max-width:991px) {
     display: none;
