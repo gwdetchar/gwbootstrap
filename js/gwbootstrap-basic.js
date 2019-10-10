@@ -17,8 +17,8 @@
  * along with GW-Bootstrap.  If not, see <http://www.gnu.org/licenses/>
  *
  * @summary Basic utilities for GW-Bootstrap pages
- * @author Duncan Macleod <duncan.macleod@ligo.org>,
- *         Alex Urban <alexander.urban@ligo.org>
+ * @author Duncan Macleod <duncan.macleod@ligo.org>
+ * @author Alex Urban <alexander.urban@ligo.org>
  */
 
 /** match page position to navbar height */
