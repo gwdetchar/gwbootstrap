@@ -143,14 +143,31 @@ $navbar-color-focus: #fff;
   .navbar-text,
   .navbar-nav > li > a,
   .navbar-nav > li > disabled > a {
-    font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
     padding-left: 6px;
     padding-right: 6px;
     @media (min-width: $container-lg) {
       padding-left: 10px;
       padding-right: 10px;
+    }
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .ifo-links {
+    .dropdown-header {
+      padding-left: 20px;
+      padding-right: 20px;
+      white-space: normal;
+    }
+    @media (min-width: 768px) {
+      position: absolute;
+      right: 0;
     }
   }
 
@@ -180,15 +197,6 @@ $navbar-color-focus: #fff;
       top-left-radius: 0;
       top-right-radius: 0;
     }
-    /*> li a {
-						display: block;
-						padding: 3px 20px;
-						clear: both;
-						font-weight: normal;
-						line-height: 1.42857143;
-						color: #333333;
-						white-space: nowrap;
-				}*/
   }
 
   .navbar-nav .open {

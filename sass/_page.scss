@@ -22,19 +22,126 @@
 
 html,
 body {
-  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  background-color: #eee;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+h4 {
+  word-break: break-all;
+}
+
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  content: '';
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+a {
+  cursor: pointer;
+}
+
+img {
+  margin: 0 auto;
+}
+
+.desktop-only {
+  @media(max-width:991px) {
+    display: none;
+  }
+}
+
+.dropdown-1-col {
+  max-height: 700px;
+  overflow-y: scroll;
+  white-space: nowrap;
 }
 
 // container widths
 .container {
+  width: 97%;
+  @media (max-width: 991px) {
+    max-width: 991px;
+  }
   @media (min-width: 992px) {
     max-width: 1100px;
-    width: 97%;
   }
 
   @media (min-width: 1200px) {
     max-width: 1400px;
-    width: 97%;
+  }
+}
+
+// floating buttons
+.btn-group {
+  margin-bottom: 6px;
+  margin-top: 0;
+  @media(max-width:991px) {
+    float: left;
+  }
+  @media(min-width:992px) {
+    float: right;
+  }
+}
+
+.btn-table {
+  margin-bottom: 15px;
+  margin-top: -15px;
+}
+
+.btn-float {
+  @media(max-width:991px) {
+    display: none;
+  }
+  @media(min-width:992px) {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #555;
+    border-radius: 100%;
+    bottom: 37px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
+    // text elements
+    color: #555;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 28px;
+    font-weight: 300;
+    height: 50px;
+    justify-content: center;
+    // appearance
+    outline: none;
+    position: fixed;
+    right: 90px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+    width: 50px;
+    z-index: 99;
+  }
+}
+
+.btn-float:hover {
+  @media(min-width:992px) {
+    background-color: #555;
+    border: 2px solid #fff;
+    color: #fff;
   }
 }
