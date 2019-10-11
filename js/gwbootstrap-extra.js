@@ -15,6 +15,10 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with GWSumm.  If not, see <http://www.gnu.org/licenses/>
+ *
+ * @summary Extra utilities for GW-Bootstrap pages
+ * @author Duncan Macleod <duncan.macleod@ligo.org>
+ * @author Alex Urban <alexander.urban@ligo.org>
  */
 
 /* global moment */

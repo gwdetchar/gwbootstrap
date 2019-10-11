@@ -19,51 +19,50 @@
  * @summary Basic utilities for GW-Bootstrap pages
  * @author Duncan Macleod <duncan.macleod@ligo.org>
  * @author Alex Urban <alexander.urban@ligo.org>
- *
  */
 
 /* global $footer:writeable, fpad:writeable, padtop:writeable, padbottom:writeable */
 
-// match page position to navbar height
+// Match page position to navbar height
 function matchPageTopToNavbar() {
-  $('.navbar-fixed-top + .container').css('padding-top', $('header').height());
+  jQuery('.navbar-fixed-top + .container').css('padding-top', jQuery('header').height());
 }
 
-// match footer height to content
+// Match footer height to content
 function matchFooterHeight() {
   // get container dimensions
-  const newheight = $('.footer > .container').outerHeight();
+  const newheight = jQuery('.footer > .container').outerHeight();
   // reset footer height
-  $footer = $('.footer');
+  $footer = jQuery('.footer');
   fpad = $footer.outerHeight() - $footer.height();
   $footer.height(newheight + fpad);
   // reset body margin
   padtop = parseInt($footer.css('padding-top'), 10);
   padbottom = parseInt($footer.css('padding-bottom'), 10);
-  $('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
+  jQuery('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
 }
 
-$(window).load(() => {
+jQuery(window).load(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
 });
-$(window).resize(() => {
+jQuery(window).resize(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
 });
 
-// include a return-to-top button
-$.fn.scrollView = function scrollView() {
+// Include a return-to-top button
+jQuery.fn.scrollView = function scrollView() {
   return this.each(() => {
-    $('html, body').animate({
+    jQuery('html, body').animate({
       scrollTop: 0,
     }, 800);
   });
 };
 
-// expand fancybox plots
-$(document).ready(() => {
-  $('.fancybox').fancybox({
+// Expand fancybox plots
+jQuery(document).ready(() => {
+  jQuery('.fancybox').fancybox({
     nextEffect: 'none',
     prevEffect: 'none',
     backFocus: false,
@@ -71,7 +70,7 @@ $(document).ready(() => {
   });
 });
 
-// expose alternative image types
+// Expose alternative image types
 // eslint-disable-next-line no-unused-vars
 function showImage(channelName, tRanges, imageType, captions) {
   for (let i = 0; i < tRanges.length; i += 1) {
@@ -84,7 +83,7 @@ function showImage(channelName, tRanges, imageType, captions) {
   }
 }
 
-// download a CSV table
+// Download a CSV table
 // eslint-disable-next-line no-unused-vars
 function downloadCSV(csv, filename) {
   // set download attributes
@@ -98,7 +97,7 @@ function downloadCSV(csv, filename) {
   downloadLink.click();
 }
 
-// export a table to CSV
+// Export a table to CSV
 // eslint-disable-next-line no-unused-vars
 function exportTableToCSV(filename, tableId) {
   const csv = [];
