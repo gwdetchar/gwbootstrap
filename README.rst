@@ -3,8 +3,8 @@ Bootstrap for GW Observatories
 ##############################
 
 This repository provides extensions to the standard `bootstrap-3.x`_ styling,
-with specific applications for the `GW-DetChar`_ suite of detector
-characterisation tools.
+with specific applications for the `GW-DetChar`_ and `GWSumm`_ suite of
+detector characterisation tools.
 
 This collection of cascading style sheets (CSS) and JavaScript utilities
 is designed to represent the global network of ground-based gravitational
@@ -16,6 +16,33 @@ wave observatories, with explicit style support for:
 * `GEO600`_ (Germany)
 * `KAGRA`_ (Japan)
 * `LIGO-India`_ (Maharashtra, India)
+
+------------
+Installation
+------------
+
+GW-Bootstrap can be installed server-side with `npm`_:
+
+.. code:: bash
+
+   npm install --save-dev gwbootstrap
+
+However, the easiest way import stylesheets and scripts is through the content
+delivery network `cdnjs`_. Simply include the following lines somewhere near
+the end of the `<head>` metadata elements in your HTML:
+
+.. code:: html
+
+   <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap.min.css" type="text/javascript"></script>
+
+where `<version>` is the semantic version number, e.g. 1.0.0. If you require
+only the lightweight script elements, and do not need calendars or other
+heavier interactive features, please use the `gwbootstrap-basic` script:
+
+.. code:: html
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
 
 ------------
 Contributing
@@ -30,6 +57,9 @@ proposing additions and making changes.
 
 .. _bootstrap-3.x: //github.com/twbs/bootstrap/
 .. _GW-DetChar: //github.com/gwdetchar/gwdetchar/
+.. _GWSumm: //github.com/gwpy/gwsumm/
+.. _npm: https://www.npmjs.com/get-npm
+.. _cdnjs: https://cdnjs.com
 .. _Sass Guidelines: https://sass-guidelin.es
 .. _stylelint: https://stylelint.io
 .. _eslint: https://eslint.org
