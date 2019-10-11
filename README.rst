@@ -48,12 +48,13 @@ other heavier interactive features, please use the `gwbootstrap-basic` script:
 Contributing
 ------------
 
-All code should follow `Sass Guidelines`_ for consistency; users may
-use the `stylelint`_ CSS linter to check their stylesheets and `eslint`_
-to parse JavaScript for issues before submitting.
+All code should follow the `Sass Guidelines`_ and `Airbnb JavaScript Style
+Guide`_ for consistency. users may use the `stylelint`_ CSS linter to check
+their stylesheets and `eslint`_ to parse JavaScript for issues before
+submitting.
 
-The `contributions guide`_ outlines our recommended procedure for
-proposing additions and making changes.
+The `contributions guide`_ outlines our recommended procedure for proposing
+additions and making and testing changes.
 
 .. _bootstrap-3.x: //github.com/twbs/bootstrap/
 .. _GW-DetChar: //github.com/gwdetchar/gwdetchar/
@@ -61,6 +62,7 @@ proposing additions and making changes.
 .. _npm: https://www.npmjs.com/get-npm
 .. _cdnjs: https://cdnjs.com
 .. _Sass Guidelines: https://sass-guidelin.es
+.. _Airbnb JavaScript Style Guide: //github.com/airbnb/javascript
 .. _stylelint: https://stylelint.io
 .. _eslint: https://eslint.org
 .. _contributions guide: //github.com/gwdetchar/gwbootstrap/blob/master/CONTRIBUTING.md
