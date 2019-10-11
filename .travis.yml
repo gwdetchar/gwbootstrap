@@ -1,9 +1,8 @@
 language: sass
 
 before_install:
-  - npm -g install acorn sass stylelint stylelint-config-sass-guidelines
+  - npm install -g babel-cli sass eslint stylelint stylelint-config-sass-guidelines
+  - npx install-peerdeps --dev eslint-config-airbnb
 
 script:
-  - stylelint --quiet sass/*.scss
-  - sass --style compressed sass/gwbootstrap.scss
-  - acorn --silent js/*.js
+  - npm run test

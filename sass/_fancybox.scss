@@ -24,8 +24,13 @@
   max-width: 100%;
 }
 
+.fancybox-bg,
 .fancybox-skin {
   background: #fff;
+}
+
+.fancybox-is-open .fancybox-bg {
+  opacity: 1;
 }
 
 .fancybox-nav {

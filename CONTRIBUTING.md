@@ -62,15 +62,30 @@ Chrome, Firefox, Safari, and/or IE9+) if possible.
 Stylesheets in this collection follow [Sass Guidelines](https://sass-guidelin.es),
 and all code should adhere to these as far as is reasonable.
 
-Automated testing of pull requests include a job that runs the
+Automated testing of pull requests includes a job that runs the
 [`stylelint`](https://stylelint.io) linter, which checks the style of SCSS
-sheets in the repo, and [`acorn`](//github.com/acornjs/acorn), which checks
+sheets in the repo, and [`eslint`](https://eslint.org), which checks
 JavaScript tools. You can run these locally before committing changes via:
 
 ```bash
-npm install -g acorn stylelint stylelint-config-sass-guidelines
-stylelint sass/*.scss
-acorn js/*.js
+npm install -g eslint stylelint stylelint-config-sass-guidelines
+npx install-peerdeps --dev eslint-config-airbnb
+npm run lint
 ```
 Make sure to run these commands from the top-level directory, which contains
-a configuration for the SCSS linter.
+a configuration for the SCSS and JS linters.
+
+### Compiling minified scripts
+
+Finally, please make sure to compile your changes into "minified" stylesheets
+and scripts, so that webpages using these elements can load them quickly and
+efficiently:
+
+```bash
+npm install -g sass babel-cli
+npm run build
+```
+
+This will run the local [`build.sh`](build.sh) script, which automates all
+necessary compiling for your convenience. Note, build tests will fail if the
+minified files are not re-compiled.

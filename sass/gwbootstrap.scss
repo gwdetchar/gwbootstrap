@@ -21,8 +21,12 @@
 
 @charset 'utf-8';
 
-// special font(s)
-@import 'https://fonts.googleapis.com/css?family=Roboto:400,500%7CRoboto+Mono';
+// external imports
+@import '//code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.min.css';
+@import '//fonts.googleapis.com/css?family=Roboto:400,500%7CRoboto+Mono';
+@import '//stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
+@import '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css';
+@import '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css';
 
 // variables and functions
 @import 'variables';
@@ -48,3 +52,4 @@
 // extras
 @import 'ifos';
 @import 'fancybox';
+@import 'ui';

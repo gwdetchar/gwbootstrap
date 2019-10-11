@@ -165,10 +165,14 @@ $navbar-color-focus: #fff;
       padding-right: 20px;
       white-space: normal;
     }
-    @media (min-width: 768px) {
+    @media (min-width: $container-sm) {
       position: absolute;
       right: 0;
     }
+  }
+
+  .btn-group {
+    margin-bottom: 0;
   }
 
   .btn-group.open .dropdown-toggle {
@@ -210,6 +214,51 @@ $navbar-color-focus: #fff;
           top: 1px solid #808080;
         }
       }
+    }
+  }
+
+  // map page to another observatory
+  .base-map {
+    padding-right: 5px;
+    @media (min-width: $container-sm) {
+      margin-right: 10px;
+    }
+
+    .dropdown-menu {
+      min-width: 44px;
+
+      a {
+        cursor: pointer;
+        padding-left: 12px;
+
+        &::after {
+          color: transparent;
+          content: attr(title);
+          display: block;
+          font-weight: bold;
+          height: 1px;
+          margin-bottom: -1px;
+          overflow: hidden;
+          visibility: hidden;
+        }
+      }
+      @media (min-width: $container-sm) {
+        margin-left: -15px;
+        min-width: 52px;
+      }
+    }
+  }
+
+  // switch observatory state time segments
+  .state-switch {
+    .dropdown-header {
+      padding-left: 20px;
+      padding-right: 20px;
+      white-space: normal;;
+    }
+    @media (min-width: $container-sm) {
+      position: absolute;
+      right: 0;
     }
   }
 
