@@ -29,7 +29,7 @@ done
 
 # compare against the current minified files
 for file_ in $(ls ${TESTDIR}); do
-    reference="min/$(basename ${file_})"
+    reference="lib/$(basename ${file_})"
     eval "cmp -s ${TESTDIR}/${file_} ${reference}"
     code=$?
     result=$((result + code))
