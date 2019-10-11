@@ -4,10 +4,10 @@
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
   "main": "index.js",
   "scripts": {
-    "unit": "eslint --quiet js/*",
-    "lint": "stylelint --quiet sass/*.scss",
-    "test": "npm run unit && npm run lint",
-    "build": "./build.sh"
+    "unit": "npm run test",
+    "lint": "bash scripts/lint.sh",
+    "test": "bash scripts/lint.sh && bash scripts/test.sh",
+    "build": "bash scripts/build.sh"
   },
   "repository": {
     "type": "git",
@@ -56,7 +56,6 @@
     "moment": "^2.24.0",
     "bootstrap": "^3.4.1",
     "fancybox": "^3.5.7",
-    "font-awesome": "5.10.2",
     "bootstrap-datepicker": "^1.9.0",
     "google-fonts": "^1.0.0"
   }

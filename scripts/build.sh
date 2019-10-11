@@ -22,6 +22,6 @@ CMD3="sass --style compressed ${CSSIN} ${CSSOUT}"
 # build minified stylesheets and scripts
 declare -a Commands=("${CMD1}" "${CMD2}" "${CMD3}")
 for CMD in "${Commands[@]}"; do
-    echo ${CMD};
-    eval ${CMD};
+    echo ${CMD}
+    eval ${CMD}
 done

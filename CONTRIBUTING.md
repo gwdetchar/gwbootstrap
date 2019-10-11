@@ -70,8 +70,7 @@ JavaScript tools. You can run these locally before committing changes via:
 ```bash
 npm install -g eslint stylelint stylelint-config-sass-guidelines
 npx install-peerdeps --dev eslint-config-airbnb
-stylelint sass/*.scss
-eslint js/*.js
+npm run lint
 ```
 Make sure to run these commands from the top-level directory, which contains
 a configuration for the SCSS and JS linters.
@@ -88,4 +87,5 @@ npm run build
 ```
 
 This will run the local [`build.sh`](build.sh) script, which automates all
-necessary compiling for your convenience.
+necessary compiling for your convenience. Note, build tests will fail if the
+minified files are not re-compiled.
