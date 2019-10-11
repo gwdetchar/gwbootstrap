@@ -27,20 +27,20 @@ GW-Bootstrap can be installed server-side with `npm`_:
 
    npm install --save-dev gwbootstrap
 
-However, the easiest way import stylesheets and scripts is through the content
-delivery network `cdnjs`_. Simply include the following lines somewhere near
-the end of the `<head>` metadata elements in your HTML:
+However, the easiest way to import stylesheets and scripts is through the
+content delivery network `cdnjs`_. Simply include the following lines somewhere
+near the end of the :code:`<head>` metadata elements in your HTML:
 
-.. code:: html
+.. code-block:: html
 
    <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
    <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap.min.css" type="text/javascript"></script>
 
-where `<version>` is the semantic version number, e.g. 1.0.0. If you require
-only the lightweight script elements, and do not need calendars or other
-heavier interactive features, please use the `gwbootstrap-basic` script:
+where :code:`<version>` is the semantic version number, e.g. 1.0.0. If you
+require only the lightweight script elements, and do not need calendars or
+other heavier interactive features, please use the `gwbootstrap-basic` script:
 
-.. code:: html
+.. code-block:: html
 
    <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
 
