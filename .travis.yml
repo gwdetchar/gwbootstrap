@@ -1,8 +1,7 @@
 language: sass
 
 before_install:
-  - npm install -g babel-cli sass eslint stylelint stylelint-config-sass-guidelines
-  - npx install-peerdeps --dev eslint-config-airbnb
+  - npm install .
 
 script:
   - npm run test
