@@ -38,7 +38,8 @@ near the end of the :code:`<head>` metadata elements in your HTML:
 
 where :code:`<version>` is the semantic version number, e.g. 1.0.0. If you
 require only the lightweight script elements, and do not need calendars or
-other heavier interactive features, please use the `gwbootstrap-basic` script:
+other heavier interactive features, please use the :code:`gwbootstrap-basic`
+script:
 
 .. code-block:: html
 
@@ -49,7 +50,7 @@ Contributing
 ------------
 
 All code should follow the `Sass Guidelines`_ and `Airbnb JavaScript Style
-Guide`_ for consistency. users may use the `stylelint`_ CSS linter to check
+Guide`_ for consistency. Users may use the `stylelint`_ CSS linter to check
 their stylesheets and `eslint`_ to parse JavaScript for issues before
 submitting.
 
