@@ -33,8 +33,8 @@ near the end of the :code:`<head>` metadata elements in your HTML:
 
 .. code-block:: html
 
-   <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
-   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap.min.css" type="text/javascript"></script>
+   <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap.min.css" type="text/javascript"></script>
 
 where :code:`<version>` is the semantic version number, e.g. 1.0.0. If you
 require only the lightweight script elements, and do not need calendars or
@@ -43,7 +43,7 @@ script:
 
 .. code-block:: html
 
-   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<release>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
 
 ------------
 Contributing
