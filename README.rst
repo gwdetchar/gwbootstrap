@@ -22,7 +22,7 @@ Contributing
 ------------
 
 All code should follow `Sass Guidelines`_ for consistency; users may
-use the `stylelint`_ CSS linter to check their stylesheets and `acorn`_
+use the `stylelint`_ CSS linter to check their stylesheets and `eslint`_
 to parse JavaScript for issues before submitting.
 
 The `contributions guide`_ outlines our recommended procedure for
@@ -32,7 +32,7 @@ proposing additions and making changes.
 .. _GW-DetChar: //github.com/gwdetchar/gwdetchar/
 .. _Sass Guidelines: https://sass-guidelin.es
 .. _stylelint: https://stylelint.io
-.. _acorn: //github.com/acornjs/acorn
+.. _eslint: https://eslint.org
 .. _contributions guide: //github.com/gwdetchar/gwbootstrap/blob/master/CONTRIBUTING.md
 
 .. _LIGO-Hanford: https://www.ligo.caltech.edu/WA
