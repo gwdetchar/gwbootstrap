@@ -93,7 +93,8 @@ development and testing.
 ### Style
 
 Stylesheets in this collection follow [Sass Guidelines](https://sass-guidelin.es),
-and all code should adhere to these as far as is reasonable.
+while JavaScript elements follow the [Airbnb Style Guide](https://github.com/airbnb/javascript).
+All code should adhere to these as far as is reasonable.
 
 Automated testing of pull requests includes a job that runs the
 [`stylelint`](https://stylelint.io) linter, which checks the style of SCSS
