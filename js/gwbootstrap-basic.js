@@ -19,97 +19,97 @@
  * @summary Basic utilities for GW-Bootstrap pages
  * @author Duncan Macleod <duncan.macleod@ligo.org>
  * @author Alex Urban <alexander.urban@ligo.org>
+ *
  */
 
-/** match page position to navbar height */
+/* global $footer:writeable, fpad:writeable, padtop:writeable, padbottom:writeable */
+
+// match page position to navbar height
 function matchPageTopToNavbar() {
   $('.navbar-fixed-top + .container').css('padding-top', $('header').height());
 }
 
-/** match footer height to content */
+// match footer height to content
 function matchFooterHeight() {
   // get container dimensions
-  var newheight = $('.footer > .container').outerHeight();
+  const newheight = $('.footer > .container').outerHeight();
   // reset footer height
   $footer = $('.footer');
   fpad = $footer.outerHeight() - $footer.height();
   $footer.height(newheight + fpad);
   // reset body margin
-  padtop = parseInt($footer.css('padding-top'));
-  padbottom = parseInt($footer.css('padding-bottom'));
+  padtop = parseInt($footer.css('padding-top'), 10);
+  padbottom = parseInt($footer.css('padding-bottom'), 10);
   $('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
 }
 
-$(window).load(function() {
+$(window).load(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
 });
-$(window).resize(function() {
+$(window).resize(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
 });
 
-/** include a return-to-top button */
-$.fn.scrollView = function () {
-  return this.each(function () {
+// include a return-to-top button
+$.fn.scrollView = function scrollView() {
+  return this.each(() => {
     $('html, body').animate({
-      scrollTop: 0
+      scrollTop: 0,
     }, 800);
   });
-}
+};
 
-/** expand fancybox plots */
-$(document).ready(function() {
-  $(".fancybox").fancybox({
+// expand fancybox plots
+$(document).ready(() => {
+  $('.fancybox').fancybox({
     nextEffect: 'none',
     prevEffect: 'none',
     backFocus: false,
-    helpers: {title: {type: 'inside'}}
+    helpers: { title: { type: 'inside' } },
   });
 });
 
-/** expose alternative image types */
+// expose alternative image types
+// eslint-disable-next-line no-unused-vars
+function showImage(channelName, tRanges, imageType, captions) {
+  for (let i = 0; i < tRanges.length; i += 1) {
+    const idBase = `${channelName}_${tRanges[tRanges[i]]}`;
+    const fileBase = `${channelName}-${imageType}-${tRanges[tRanges[i]]}`;
+    document.getElementById(`a_${idBase}`).href = `plots/${fileBase}.png`;
+    document.getElementById(`a_${idBase}`).title = captions[tRanges[i]];
+    document.getElementById(`img_${idBase}`).src = `plots/${fileBase}.png`;
+    document.getElementById(`img_${idBase}`).alt = `${fileBase}.png`;
+  }
+}
+
+// download a CSV table
+// eslint-disable-next-line no-unused-vars
 function downloadCSV(csv, filename) {
-  var csvFile;
-  var downloadLink;
   // set download attributes
-  csvFile = new Blob([csv], {type: "text/csv"});
-  downloadLink = document.createElement("a");
+  const csvFile = new Blob([csv], { type: 'text/csv' });
+  const downloadLink = document.createElement('a');
   downloadLink.download = filename;
   downloadLink.href = window.URL.createObjectURL(csvFile);
-  downloadLink.style.display = "none";
+  downloadLink.style.display = 'none';
   document.body.appendChild(downloadLink);
   // download action
   downloadLink.click();
 }
 
-/** download a CSV table */
-function downloadCSV(csv, filename) {
-  var csvFile;
-  var downloadLink;
-  // set download attributes
-  csvFile = new Blob([csv], {type: "text/csv"});
-  downloadLink = document.createElement("a");
-  downloadLink.download = filename;
-  downloadLink.href = window.URL.createObjectURL(csvFile);
-  downloadLink.style.display = "none";
-  document.body.appendChild(downloadLink);
-  // download action
-  downloadLink.click();
-}
-
-/** export a table to CSV */
+// export a table to CSV
+// eslint-disable-next-line no-unused-vars
 function exportTableToCSV(filename, tableId) {
-  var csv = [];
-  var table = document.getElementById(tableId);
-  var rows = table.querySelectorAll("table tr");
+  const csv = [];
+  const table = document.getElementById(tableId);
+  const rows = table.querySelectorAll('table tr');
   // get table rows
-  for (var i = 0; i < rows.length; i++) {
-    var row = [], cols = rows[i].querySelectorAll("td, th");
-    for (var j = 0; j < cols.length; j++)
-        row.push(cols[j].innerText);
-    csv.push(row.join(","));
+  for (let i = 0; i < rows.length; i += 1) {
+    const row = []; const cols = rows[i].querySelectorAll('td, th');
+    for (let j = 0; j < cols.length; j += 1) { row.push(cols[j].innerText); }
+    csv.push(row.join(','));
   }
   // download CSV record
-  downloadCSV(csv.join("\n"), filename);
+  downloadCSV(csv.join('\n'), filename);
 }

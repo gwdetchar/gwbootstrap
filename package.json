@@ -1,0 +1,45 @@
+{
+  "name": "gwbootstrap",
+  "version": "1.0.0",
+  "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint --quiet js/*",
+    "lint": "stylelint --quiet sass/*.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwdetchar/gwbootstrap.git"
+  },
+  "keywords": [
+    "gravitational",
+    "waves",
+    "LIGO",
+    "Virgo",
+    "KAGRA",
+    "GEO",
+    "Bootstrap",
+    "CSS",
+    "JavaScript"
+  ],
+  "author": "Alex Urban <alexander.urban@ligo.org>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/gwdetchar/gwbootstrap/issues"
+  },
+  "homepage": "https://github.com/gwdetchar/gwbootstrap#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^7.16.0"
+  }
+}

@@ -17,142 +17,139 @@
  * along with GWSumm.  If not, see <http://www.gnu.org/licenses/>
  */
 
-"use strict";
+/* global moment */
+
 
 /* ------------------------------------------------------------------------- */
 /* Calendar links                                                            */
-var re_dayurl = new RegExp('day\/\\d{8}\/');
-var re_monthurl = new RegExp('month\/\\d{6}\/');
-var re_yearurl = new RegExp('year\/\\d{4}\/');
+const regexDayURL = new RegExp('day/\\d{8}/');
+const regexMonthURL = new RegExp('month/\\d{6}/');
+const regexYearURL = new RegExp('year/\\d{4}/');
 
 function findDateFormat() {
-  var url = window.location.href;
-  if (re_dayurl.test(url)) {
+  const url = window.location.href;
+  if (regexDayURL.test(url)) {
     return 'day';
   }
-  if (re_monthurl.test(url)) {
+  if (regexMonthURL.test(url)) {
     return 'month';
   }
-  if (re_yearurl.test(url)) {
+  if (regexYearURL.test(url)) {
     return 'year';
   }
   return undefined;
 }
 
 function getPageDate() {
-  var dateformat = findDateFormat();
-  if (dateformat == 'day') {
-    var datestring =
-      String(re_dayurl.exec(window.location.href)).split('/')[1];
+  let datestring;
+  const dateformat = findDateFormat();
+  if (dateformat === 'day') {
+    [, datestring] = String(regexDayURL.exec(window.location.href)).split('/');
     return moment(datestring, 'YYYYMMDD');
   }
-  if (dateformat == 'month') {
-    var datestring =
-      String(re_monthurl.exec(window.location.href)).split('/')[1];
+  if (dateformat === 'month') {
+    [, datestring] = String(regexMonthURL.exec(window.location.href)).split('/');
     return moment(datestring, 'YYYYMM');
   }
-  if (dateformat == 'year') {
-    var datestring =
-      String(re_yearurl.exec(window.location.href)).split('/')[1];
+  if (dateformat === 'year') {
+    [, datestring] = String(regexYearURL.exec(window.location.href)).split('/');
     return moment(datestring, 'YYYY');
   }
-  throw "Cannot parse date format '" + dateformat + "'";
-}
-
-function stepDate(step) {
-  var dateformat = findDateFormat();
-  if (!dateformat) {
-    return;
-  }
-  var date = getPageDate();
-  var newdate = date.add(dateformat, step);
-  if (dateformat == 'day') {
-    move_to_date({type: 'changeDate', date: newdate});
-  } else if (dateformat == 'month') {
-    move_to_date({type: 'changeMonth', date: newdate});
-  } else if (dateformat == 'year') {
-    move_to_date({type: 'changeYear', date: newdate});
-  }
+  throw new Error(`Cannot parse date format '${dateformat}'`);
 }
 
 // Move to the date selected
-function move_to_date(ev) {
-  var url = window.location.href;
-  var date = moment(ev.date);
+function moveToDate(ev) {
+  let newformat;
+  let newurl;
+  const url = window.location.href;
+  const date = moment(ev.date);
   // find new date format
-  if (ev.type == 'changeDate') {
-    var newformat = 'day/' + date.format('YYYYMMDD') + '/';
-    var dispdate = date.format('MMMM Do YYYY');
-  }
-  else if (ev.type == 'changeMonth') {
-    var newformat = 'month/' + date.format('YYYYMM') + '/';
-    var dispdate = date.format('MMMM YYYY');
-  }
-  else if (ev.type == 'changeYear') {
-    var newformat = 'year/' + date.format('YYYY') + '/';
-    var dispdate = date.format('YYYY');
+  if (ev.type === 'changeDate') {
+    newformat = `day/${date.format('YYYYMMDD')}/`;
+  } else if (ev.type === 'changeMonth') {
+    newformat = `month/${date.format('YYYYMM')}/`;
+  } else if (ev.type === 'changeYear') {
+    newformat = `year/${date.format('YYYY')}/`;
   }
   // work through starting formats and proceed
-  if (re_dayurl.test(url)) {
-    var newurl = url.replace(re_dayurl, newformat);
-  } else if (re_monthurl.test(url)) {
-    var newurl = url.replace(re_dayurl, newformat);
-  } else if (re_yearurl.test(url)) {
-    var newurl = url.replace(re_dayurl, newformat);
-  } else if (window.location.href ==
-               document.getElementsByTagName('base')[0].href) {
-    var newurl = window.location.href + newformat;
+  if (regexDayURL.test(url)) {
+    newurl = url.replace(regexDayURL, newformat);
+  } else if (regexMonthURL.test(url)) {
+    newurl = url.replace(regexDayURL, newformat);
+  } else if (regexYearURL.test(url)) {
+    newurl = url.replace(regexDayURL, newformat);
+  } else if (window.location.href
+               === document.getElementsByTagName('base')[0].href) {
+    newurl = window.location.href + newformat;
   } else {
-    alert("ERROR: Cannot format new date. If the problem persists, please report this at https://github.com/gwpy/gwsumm/issues/");
+    alert('ERROR: Cannot format new date. If the problem persists, please report this at https://github.com/gwpy/gwsumm/issues/');
   }
   window.location = newurl;
 }
 
-// Shorten date in calendar if very small screen
-function shortenDate() {
-  var $calendar = jQuery('#calendar');
-  var date_ = moment($calendar.data('date'),
-                     $calendar.data('date-format').toUpperCase());
-  if ($calendar.html().startsWith('Calendar')) {  // don't break non-dates
+// Move to the next available date
+// eslint-disable-next-line no-unused-vars
+function stepDate(step) {
+  const dateformat = findDateFormat();
+  if (!dateformat) {
     return;
   }
-  if (jQuery(document).width() < 400 ) {  // print shortened month name
+  const date = getPageDate();
+  const newdate = date.add(dateformat, step);
+  if (dateformat === 'day') {
+    moveToDate({ type: 'changeDate', date: newdate });
+  } else if (dateformat === 'month') {
+    moveToDate({ type: 'changeMonth', date: newdate });
+  } else if (dateformat === 'year') {
+    moveToDate({ type: 'changeYear', date: newdate });
+  }
+}
+
+// Shorten date in calendar if very small screen
+function shortenDate() {
+  const $calendar = jQuery('#calendar');
+  const date_ = moment($calendar.data('date'),
+    $calendar.data('date-format').toUpperCase());
+  if ($calendar.html().startsWith('Calendar')) { // don't break non-dates
+    return;
+  }
+  if (jQuery(document).width() < 400) { // print shortened month name
     $calendar.html(date_.format('MMM D YYYY'));
-  } else {  // print full month name
-    $calendar.html(' ' + date_.format('MMMM D YYYY') + ' <b class="caret"></b>');
+  } else { // print full month name
+    $calendar.html(` ${date_.format('MMMM D YYYY')} <b class="caret"></b>`);
   }
 }
 
 /* ------------------------------------------------------------------------- */
 /* Fancybox images                                                           */
 
-// resize fancybox iframe to 'normal' proportions
+// Resize fancybox iframe to 'normal' proportions
 function resizeFancyboxIframe() {
-  var width = Math.min(1200, jQuery(".fancybox-skin").width());
-  var height = (width - 40) * 0.5;
-  if (width > document.body.clientWidth ) {
-    jQuery(".fancybox-iframe").width(width - 40);
+  const width = Math.min(1200, jQuery('.fancybox-skin').width());
+  if (width > document.body.clientWidth) {
+    jQuery('.fancybox-iframe').width(width - 40);
   } else {
-    jQuery(".fancybox-iframe").width(width);
+    jQuery('.fancybox-iframe').width(width);
   }
-  jQuery(".fancybox-wrap").width(width + 30);
+  jQuery('.fancybox-wrap').width(width + 30);
 
   // set heights as half width
-  jQuery(".fancybox-iframe").height(parseInt(jQuery(".fancybox-iframe").width() * 0.5));
-  jQuery(".fancybox-wrap").height(parseInt(jQuery(".fancybox-wrap").width() * 0.5));
+  jQuery('.fancybox-iframe').height(parseInt(jQuery('.fancybox-iframe').width() * 0.5, 10));
+  jQuery('.fancybox-wrap').height(parseInt(jQuery('.fancybox-wrap').width() * 0.5, 10));
 }
 
 /* ------------------------------------------------------------------------- */
 /* Overlay figures                                                           */
 
 function getSelectedFigures() {
-  var stored = sessionStorage.getItem('selectedFigures');
-  var selectedFigures = JSON.parse(stored) || [];
+  const stored = sessionStorage.getItem('selectedFigures');
+  const selectedFigures = JSON.parse(stored) || [];
   return selectedFigures;
 }
 
 function setSelectedFigures(value) {
-  var stored = JSON.stringify(value);
+  const stored = JSON.stringify(value);
   sessionStorage.setItem('selectedFigures', stored);
 }
 
@@ -168,33 +165,35 @@ function appendFigure(src, selectedFigures) {
 
 // Construct figure canvas
 function setupCanvas(canvas) {
-  var dpr = window.devicePixelRatio || 1;
-  var rect = canvas.getBoundingClientRect();
-  canvas.width = rect.width * dpr;
-  canvas.height = rect.height * dpr;
-  var context = canvas.getContext('2d');
+  const canv = canvas;
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canv.getBoundingClientRect();
+  canv.width = rect.width * dpr;
+  canv.height = rect.height * dpr;
+  const context = canv.getContext('2d');
   context.scale(dpr, dpr);
   return context;
 }
 
 // Render overlay figure
 function overlayFigures() {
-  var dpr = window.devicePixelRatio || 1;
-  var selectedFigures = getSelectedFigures();
-  var canvas = document.getElementById('overlay-canvas');
-  var context = setupCanvas(canvas);
+  const dpr = window.devicePixelRatio || 1;
+  const selectedFigures = getSelectedFigures();
+  const canvas = document.getElementById('overlay-canvas');
+  const context = setupCanvas(canvas);
   context.clearRect(0, 0, canvas.width, canvas.height);
-  for (let src of selectedFigures) {
-    let figure = new Image();
+  // eslint-disable-next-line no-unused-vars
+  selectedFigures.forEach((src, i) => {
+    const figure = new Image();
     figure.src = src;
     context.drawImage(figure, 0, 0, canvas.width / dpr, canvas.height / dpr);
-  }
+  });
 }
 
 // Download overlay figure
 function downloadOverlay() {
-  var canvas = document.getElementById('overlay-canvas');
-  var downloadLink = document.createElement('a');
+  const canvas = document.getElementById('overlay-canvas');
+  const downloadLink = document.createElement('a');
   downloadLink.download = 'overlay.png';
   downloadLink.href = canvas.toDataURL('image/png');
   downloadLink.style.display = 'none';
@@ -204,9 +203,9 @@ function downloadOverlay() {
 
 // Clear all figures
 function clearFigures() {
-  var selectedFigures = getSelectedFigures();
-  var canvas = document.getElementById('overlay-canvas');
-  var context = canvas.getContext('2d');
+  const selectedFigures = getSelectedFigures();
+  const canvas = document.getElementById('overlay-canvas');
+  const context = canvas.getContext('2d');
   context.clearRect(0, 0, canvas.width, canvas.height);
   selectedFigures.length = 0;
   setSelectedFigures(selectedFigures);
@@ -217,52 +216,52 @@ function clearFigures() {
 
 // Load a given 'state'
 jQuery.fn.load_state = function loadState(page) {
-  if (jQuery(this).attr('id') == undefined) {
+  if (jQuery(this).attr('id') === undefined) {
     return;
   }
   jQuery('#main').load(page);
   jQuery(this).set_state();
-}
+};
 
 // Set a given state in the menu
 jQuery.fn.set_state = function setState() {
-  if (jQuery(this).attr('id') == undefined) {
+  if (jQuery(this).attr('id') === undefined) {
     return;
   }
-  var id = jQuery(this).attr('id').substring(6);
-  jQuery('#states').html(jQuery(this).attr('title') + ' <b class="caret"></b>');
+  const id = jQuery(this).attr('id').substring(6);
+  jQuery('#states').html(`${jQuery(this).attr('title')} <b class="caret"></b>`);
   jQuery('.state').removeClass('open');
   jQuery(this).toggleClass('open');
-  window.location.hash = '#' + id;
-  jQuery('a.ifo-switch').each(function() {
-    var oldurl = jQuery(this).attr('href');
-    var oldhash = oldurl.split('#')[1];
+  window.location.hash = `#${id}`;
+  jQuery('a.ifo-switch').each(function () {
+    const oldurl = jQuery(this).attr('href');
+    const oldhash = oldurl.split('#')[1];
     jQuery(this).attr('href', oldurl.replace(oldhash, id));
   });
-}
+};
 
 // Fix width of fixed navbar
-function reset_width_on_resize() {
-  jQuery('#nav').width(jQuery("#nav").width());
+// eslint-disable-next-line no-unused-vars
+function resetWidthOnResize() {
+  jQuery('#nav').width(jQuery('#nav').width());
 }
 
 /* ------------------------------------------------------------------------- */
 /* Document ready and loaded                                                 */
 
-// When document is ready, run this stuff:
-jQuery(window).load(function() {
-
+// Run when the document is ready
+jQuery(window).load(function () {
   // compatibility of Bootstrap and jQuery UI elements
-  jQuery.ui.dialog.prototype._focusTabbable = function(){};
+  jQuery.ui.dialog.prototype._focusTabbable = function () {};
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();
 
   // shorten the date
-  if (jQuery('#calendar').length){shortenDate();}
+  if (jQuery('#calendar').length) { shortenDate(); }
 
   // define inter-IFO links
-  var thisbase = document.getElementsByTagName('base')[0].href;
-  jQuery('[data-new-base]').each(function() {
-    var newbase = jQuery(this).data('new-base') + '/';
+  const thisbase = document.getElementsByTagName('base')[0].href;
+  jQuery('[data-new-base]').each(function () {
+    const newbase = `${jQuery(this).data('new-base')}/`;
     jQuery(this).attr('href', window.location.href.replace(thisbase, newbase));
   });
 
@@ -270,124 +269,125 @@ jQuery(window).load(function() {
   jQuery('#calendar').datepicker({
     endDate: moment().utc().format('DD/MM/YYYY'),
     todayHighlight: true,
-    todayBtn: "linked"
-  }).on('changeDate', move_to_date);
+    todayBtn: 'linked',
+  }).on('changeDate', moveToDate);
 
   // load correct run type
-  if (location.hash.length > 1) {
-    var hash = location.hash.substring(1);
-    var path = location.pathname + hash + '.html';
-    jQuery('#state_' + hash).load_state(path);
+  if (window.location.hash.length > 1) {
+    const hash = window.location.hash.substring(1);
+    const path = `${window.location.pathname + hash}.html`;
+    jQuery(`#state_${hash}`).load_state(path);
   }
 
   // load the fancybox
-  jQuery(".fancybox").fancybox({
+  jQuery('.fancybox').fancybox({
     selector: '[data-fancybox-group="images"]',
     nextEffect: 'none',
     prevEffect: 'none',
     width: 1200,
     loop: true,
     backFocus: false,
-    iframe: {scrolling: 'no'},
+    iframe: { scrolling: 'no' },
     scrolling: 'no',
     beforeShow: resizeFancyboxIframe,
-    helpers: {overlay: {locked: false},
-              title: {type: 'inside'}}
+    helpers: {
+      overlay: { locked: false },
+      title: { type: 'inside' },
+    },
   });
 
   // custom fancybox for stamp-pem bokeh plot
-  jQuery(".fancybox-stamp").fancybox({
+  jQuery('.fancybox-stamp').fancybox({
     width: 1000,
     height: 500,
     showNavArrows: false,
     padding: 0,
     title: this.title,
     href: jQuery(this).attr('href'),
-    type: 'iframe'
+    type: 'iframe',
   });
 
   // reposition dropdown if scrolling off the screen
-  jQuery('.dropdown-toggle').click(function() {
+  jQuery('.dropdown-toggle').click(function () {
     // if page width is small, no-operation
     if (jQuery(document).width() < 992) {
       return;
     }
     // otherwise add pull-right
-    var target = jQuery(this).nextAll('.dropdown-menu');
-    var dropleft = jQuery(this).offset().left;
-    var dropwidth = target.width();
-    var left = jQuery(window).width();
-    var offright = (dropleft + dropwidth > left);
+    const target = jQuery(this).nextAll('.dropdown-menu');
+    const dropleft = jQuery(this).offset().left;
+    const dropwidth = target.width();
+    const left = jQuery(window).width();
+    const offright = (dropleft + dropwidth > left);
     if (offright) {
       target.addClass('pull-right');
     }
   });
 
   // set up dialog element
-  jQuery(".dialog").dialog({
+  jQuery('.dialog').dialog({
     autoOpen: false,
     draggable: false,
     height: 0.8 * jQuery(window).height(),
     width: 0.9 * jQuery(window).width(),
     modal: true,
     show: true,
-    hide: true
+    hide: true,
   });
-  
+
   // click outside to close dialog
-  jQuery("body").on('click', '.ui-widget-overlay', function() {
+  jQuery('body').on('click', '.ui-widget-overlay', () => {
     jQuery('.dialog').dialog('close');
   });
-  
+
   // open dialog
-  jQuery(".btn-open").click(function() {
-    var id = jQuery(this).data('id')
+  jQuery('.btn-open').click(function () {
+    const id = jQuery(this).data('id');
     jQuery(id).dialog('open');
   });
 
   // overlay actions
-  jQuery("#overlay-figures").click(overlayFigures);
-  jQuery("#download-overlay").click(downloadOverlay);
-  jQuery("#clear-figures").click(clearFigures);
-
+  jQuery('#overlay-figures').click(overlayFigures);
+  jQuery('#download-overlay').click(downloadOverlay);
+  jQuery('#clear-figures').click(clearFigures);
 });
 
 // After elements are loaded with AJAX, run this:
-jQuery(document).ajaxComplete(function(ev, xhr, settings) {
-
+// eslint-disable-next-line no-unused-vars
+jQuery(document).ajaxComplete((ev, xhr, settings) => {
   // custom tooltips
-  jQuery(".fancybox").tooltip();
-  jQuery(".fancybox-stamp").tooltip();
-  jQuery(".icon-bar a").tooltip();
-  jQuery(".btn-float").tooltip();
-  jQuery(".btn").tooltip();
+  jQuery('.fancybox').tooltip();
+  jQuery('.fancybox-stamp').tooltip();
+  jQuery('.icon-bar a').tooltip();
+  jQuery('.btn-float').tooltip();
+  jQuery('.btn').tooltip();
 
   // make figure elements draggable
-  jQuery(".img-responsive").draggable({
+  jQuery('.img-responsive').draggable({
     helper: 'clone',
     scroll: false,
-    stack: '.img-responsive'
+    stack: '.img-responsive',
   });
-  
+
   // handle figure drop events
-  jQuery("#overlay-btn").droppable({
+  jQuery('#overlay-btn').droppable({
     accept: '.img-responsive',
     classes: { 'ui-droppable-active': 'ui-state-highlight' },
     tolerance: 'pointer',
-    drop: function(ev, ui) {
+    // eslint-disable-next-line no-unused-vars
+    drop(evnt, ui) {
       ev.preventDefault();
-      var selectedFigures = getSelectedFigures();
-      var src = ui.draggable.attr('src');
+      const selectedFigures = getSelectedFigures();
+      const src = ui.draggable.attr('src');
       // if new, sort and append to selectedFigures
       if (selectedFigures.indexOf(src) === -1) {
         appendFigure(src, selectedFigures);
       }
-    }
+    },
   });
-
 });
 
-jQuery(window).resize(function() {
+jQuery(window).resize(() => {
   // set short month date
-  if (jQuery('#calendar').length){shortenDate();}
+  if (jQuery('#calendar').length) { shortenDate(); }
 });
