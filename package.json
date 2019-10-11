@@ -2,7 +2,7 @@
   "name": "gwbootstrap",
   "version": "1.0.0",
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
-  "main": "index.js",
+  "main": "lib/gwbootstrap.min.js",
   "scripts": {
     "unit": "npm run test",
     "lint": "bash scripts/lint.sh",
@@ -29,7 +29,7 @@
     "email": "alexander.urban@ligo.org",
     "url": "https://alurban.github.io"
   },
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/gwdetchar/gwbootstrap/issues"
   },

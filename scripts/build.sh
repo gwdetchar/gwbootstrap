@@ -1,13 +1,13 @@
 #!/bin/bash -l
 
-BUILDDIR="min"
+BUILDDIR="lib"
 mkdir -p ${BUILDDIR}
 
 # JavaScript files
-LIGHTJS="js/gwbootstrap-basic.js"
+LIGHTJS="js/gwbootstrap.js"
 EXTRAJS="js/gwbootstrap-extra.js"
-LIGHTJS_OUT="${BUILDDIR}/gwbootstrap-basic.min.js"
-EXTRAJS_OUT="${BUILDDIR}/gwbootstrap.min.js"
+LIGHTJS_OUT="${BUILDDIR}/gwbootstrap.min.js"
+EXTRAJS_OUT="${BUILDDIR}/gwbootstrap-extra.min.js"
 
 # (S)CSS files
 CSSIN="sass/gwbootstrap.scss"

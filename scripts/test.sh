@@ -5,10 +5,10 @@ TESTDIR="test"
 mkdir -p ${TESTDIR}
 
 # JavaScript files
-LIGHTJS="js/gwbootstrap-basic.js"
+LIGHTJS="js/gwbootstrap.js"
 EXTRAJS="js/gwbootstrap-extra.js"
-LIGHTJS_OUT="${TESTDIR}/gwbootstrap-basic.min.js"
-EXTRAJS_OUT="${TESTDIR}/gwbootstrap.min.js"
+LIGHTJS_OUT="${TESTDIR}/gwbootstrap.min.js"
+EXTRAJS_OUT="${TESTDIR}/gwbootstrap-extra.min.js"
 
 # (S)CSS files
 CSSIN="sass/gwbootstrap.scss"
