@@ -55,16 +55,16 @@ JavaScript elements, depending on use case (note: import order is important).
 +----------------+----------------------+----------------------------+
 |                | **with gwbootstrap** | **with gwbootstrap-extra** |
 +----------------+----------------------+----------------------------+
-|     **CSS**    | gwbootstrap.min.css  |     gwbootstrap.min.css    |
+| **CSS**        | gwbootstrap.min.css  | gwbootstrap.min.css        |
 +----------------+----------------------+----------------------------+
-|                |                      |        jquery-3.4.1        |
-|                |                      |      jquery-ui-1.12.1      |
-|                |     jquery-3.4.1     |      moment.js-2.24.0      |
-| **JavaScript** |   bootstrap-3.4.1    |   moment-timezone-0.5.26   |
-|                |    fancybox-3.5.7    |       bootstrap-3.4.1      |
-|                |  gwbootstrap.min.js  |       fancybox-3.5.7       |
+| **JavaScript** | jquery-3.4.1         | jquery-3.4.1               |
+|                | bootstrap-3.4.1      | jquery-ui-1.12.1           |
+|                | fancybox-3.5.7       | moment.js-2.24.0           |
+|                | gwbootstrap.min.js   | moment-timezone-0.5.26     |
+|                |                      | bootstrap-3.4.1            |
+|                |                      | fancybox-3.5.7             |
 |                |                      | bootstrap-datepicker-1.9.0 |
-|                |                      |  gwbootstrap-extra.min.js  |
+|                |                      | gwbootstrap-extra.min.js   |
 +----------------+----------------------+----------------------------+
 
 ------------
