@@ -260,8 +260,8 @@ jQuery(window).load(function () {
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();
 
   // re-position floating buttons
-  const screenWidth = jQuery('header').width();
   const floatBtns = jQuery('.btn-float');
+  const screenWidth = jQuery('header').width();
   if (screenWidth >= 992 && floatBtns.length > 1) {
     floatBtns.each(function (index) {
       this.css({ right: `${toString(90 + 60 * index)}px` });
