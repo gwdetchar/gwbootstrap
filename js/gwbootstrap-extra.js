@@ -259,6 +259,15 @@ jQuery(window).load(function () {
   jQuery.ui.dialog.prototype._focusTabbable = function () {};
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();
 
+  // re-order floating buttons
+  const screenWidth = jQuery('header').width();
+  const floatBtns = jQuery('.btn-float');
+  if (screenWidth >= 992 && floatBtns.length > 1) {
+    floatBtns.each(function (index) {
+      this.css({ right: `${toString(90 + 60 * index)}px` });
+    });
+  }
+
   // shorten the date
   if (jQuery('#calendar').length) { shortenDate(); }
 
