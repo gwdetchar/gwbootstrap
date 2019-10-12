@@ -55,6 +55,7 @@
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
     "bootstrap": "^3.4.1",
     "fancybox": "^3.0.1",
     "bootstrap-datepicker": "^1.9.0",
