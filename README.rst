@@ -36,14 +36,14 @@ near the end of the :code:`<head>` metadata elements in your HTML:
    <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
    <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap.min.css" type="text/javascript"></script>
 
-where :code:`<version>` is the semantic version number, e.g. 1.0.0. If you
-require only the lightweight script elements, and do not need calendars or
-other heavier interactive features, please use the :code:`gwbootstrap-basic`
-script:
+where :code:`<version>` is the semantic version number, e.g. 1.0.0.
+
+A heavier collection of more interactive features, including calendar view and
+a figure overlay tool, is available from the :code:`gwbootstrap-extra` script:
 
 .. code-block:: html
 
-   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap-extra.min.css" type="text/javascript"></script>
 
 ------------
 Contributing
