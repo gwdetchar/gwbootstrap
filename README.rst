@@ -27,6 +27,10 @@ GW-Bootstrap can be installed server-side with `npm`_:
 
    npm install --save-dev gwbootstrap
 
+-----
+Usage
+-----
+
 However, the easiest way to import stylesheets and scripts is through the
 content delivery network `cdnjs`_. Simply include the following lines somewhere
 near the end of the :code:`<head>` metadata elements in your HTML:
@@ -36,14 +40,39 @@ near the end of the :code:`<head>` metadata elements in your HTML:
    <link href="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/css/gwbootstrap.min.css" rel="stylesheet" media="all">
    <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap.min.css" type="text/javascript"></script>
 
-where :code:`<version>` is the semantic version number, e.g. 1.0.0. If you
-require only the lightweight script elements, and do not need calendars or
-other heavier interactive features, please use the :code:`gwbootstrap-basic`
-script:
+where :code:`<version>` is the semantic version number, e.g. 1.0.0.
+
+A heavier collection of more interactive features, including calendar view and
+a figure overlay tool, is available from the :code:`gwbootstrap-extra` script:
 
 .. code-block:: html
 
-   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap-basic.min.css" type="text/javascript"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/gwbootstrap/<version>/js/gwbootstrap-extra.min.css" type="text/javascript"></script>
+
+The following table shows recommended package dependencies for stylesheets and
+JavaScript elements, depending on use case (note: import order is important).
+
++----------------+----------------------+----------------------------+
+|                | **with gwbootstrap** | **with gwbootstrap-extra** |
++----------------+----------------------+----------------------------+
+| **CSS**        | gwbootstrap.min.css  | gwbootstrap.min.css        |
++----------------+----------------------+----------------------------+
+| **JavaScript** | jquery-3.4.1         | jquery-3.4.1               |
+|                |                      |                            |
+|                | bootstrap-3.4.1      | jquery-ui-1.12.1           |
+|                |                      |                            |
+|                | fancybox-3.5.7       | moment.js-2.24.0           |
+|                |                      |                            |
+|                | gwbootstrap.min.js   | moment-timezone-0.5.26     |
+|                |                      |                            |
+|                |                      | bootstrap-3.4.1            |
+|                |                      |                            |
+|                |                      | fancybox-3.5.7             |
+|                |                      |                            |
+|                |                      | bootstrap-datepicker-1.9.0 |
+|                |                      |                            |
+|                |                      | gwbootstrap-extra.min.js   |
++----------------+----------------------+----------------------------+
 
 ------------
 Contributing
