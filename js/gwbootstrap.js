@@ -42,13 +42,26 @@ function matchFooterHeight() {
   jQuery('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
 }
 
+// Reposition floating buttons
+function matchFloatingButtons() {
+  const floatBtn = jQuery('.btn-float');
+  const screenWidth = jQuery('header').width();
+  if (screenWidth >= 992 && floatBtn.length > 1) {
+    floatBtn.each(function (i) {
+      jQuery(this).css('right', `${(90 + 60 * i).toString()}px`);
+    });
+  }
+}
+
 jQuery(window).load(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
+  matchFloatingButtons();
 });
 jQuery(window).resize(() => {
   matchPageTopToNavbar();
   matchFooterHeight();
+  matchFloatingButtons();
 });
 
 // Include a return-to-top button
