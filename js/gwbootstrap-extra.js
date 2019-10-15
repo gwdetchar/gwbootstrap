@@ -93,7 +93,6 @@ function moveToDate(ev) {
 }
 
 // Move to the next available date
-// eslint-disable-next-line no-unused-vars
 function stepDate(step) {
   const dateformat = findDateFormat();
   if (!dateformat) {
@@ -186,8 +185,7 @@ function overlayFigures() {
   const canvas = document.getElementById('overlay-canvas');
   const context = setupCanvas(canvas);
   context.clearRect(0, 0, canvas.width, canvas.height);
-  // eslint-disable-next-line no-unused-vars
-  selectedFigures.forEach((src, i) => {
+  selectedFigures.forEach((src, _) => {
     const figure = new Image();
     figure.src = src;
     context.drawImage(figure, 0, 0, canvas.width / dpr, canvas.height / dpr);
@@ -244,12 +242,6 @@ jQuery.fn.set_state = function setState() {
   });
 };
 
-// Fix width of fixed navbar
-// eslint-disable-next-line no-unused-vars
-function resetWidthOnResize() {
-  jQuery('#nav').width(jQuery('#nav').width());
-}
-
 /* ------------------------------------------------------------------------- */
 /* Document ready and loaded                                                 */
 
@@ -282,6 +274,14 @@ jQuery(window).on('load', function () {
     const path = `${window.location.pathname + hash}.html`;
     jQuery(`#state_${hash}`).load_state(path);
   }
+
+  // step to correct date
+  jQuery('.step-forward').click(() => {
+    stepDate(1);
+  });
+  jQuery('.step-back').click(() => {
+    stepDate(-1);
+  });
 
   // load the fancybox
   jQuery('.fancybox').fancybox({
@@ -356,9 +356,8 @@ jQuery(window).on('load', function () {
   jQuery('#clear-figures').click(clearFigures);
 });
 
-// After elements are loaded with AJAX, run this:
-// eslint-disable-next-line no-unused-vars
-jQuery(document).ajaxComplete((ev, xhr, settings) => {
+// Run after elements are loaded with AJAX
+jQuery(document).ajaxComplete((ev, _0, _1) => {
   // custom tooltips
   jQuery('.fancybox').tooltip();
   jQuery('.fancybox-stamp').tooltip();
@@ -378,8 +377,7 @@ jQuery(document).ajaxComplete((ev, xhr, settings) => {
     accept: '.img-responsive',
     classes: { 'ui-droppable-active': 'ui-state-highlight' },
     tolerance: 'pointer',
-    // eslint-disable-next-line no-unused-vars
-    drop(evnt, ui) {
+    drop(_, ui) {
       ev.preventDefault();
       const selectedFigures = getSelectedFigures();
       const src = ui.draggable.attr('src');

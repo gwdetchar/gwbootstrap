@@ -125,7 +125,7 @@ jQuery.fn.scrollView = function scrollView() {
 jQuery(document).ready(() => {
   jQuery('.btn-table').click(exportTableToCSV);
   jQuery('.image-switch').click(showImage);
-  jQuery('#top-btn').click(() => {
+  jQuery('#top-btn').click(function () {
     jQuery(this).scrollView();
   });
 
