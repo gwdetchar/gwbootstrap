@@ -254,7 +254,7 @@ function resetWidthOnResize() {
 /* Document ready and loaded                                                 */
 
 // Run when the document is ready
-jQuery(window).load(function () {
+jQuery(window).on('load', function () {
   // compatibility of Bootstrap and jQuery UI elements
   jQuery.ui.dialog.prototype._focusTabbable = function () {};
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();

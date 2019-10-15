@@ -53,7 +53,7 @@ function matchFloatingButtons() {
   }
 }
 
-jQuery(window).load(() => {
+jQuery(window).on('load', () => {
   matchPageTopToNavbar();
   matchFooterHeight();
   matchFloatingButtons();
