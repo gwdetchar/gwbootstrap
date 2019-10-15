@@ -21,8 +21,6 @@
  * @author Alex Urban <alexander.urban@ligo.org>
  */
 
-/* global $footer:writeable, fpad:writeable, padtop:writeable, padbottom:writeable */
-
 // Match page position to navbar height
 function matchPageTopToNavbar() {
   jQuery('.navbar-fixed-top + .container').css('padding-top', jQuery('header').height());
@@ -30,24 +28,21 @@ function matchPageTopToNavbar() {
 
 // Match footer height to content
 function matchFooterHeight() {
-  // get container dimensions
+  const $footer = jQuery('.footer');
+  const fpad = $footer.outerHeight() - $footer.height();
   const newheight = jQuery('.footer > .container').outerHeight();
-  // reset footer height
-  $footer = jQuery('.footer');
-  fpad = $footer.outerHeight() - $footer.height();
+  const padtop = parseInt($footer.css('padding-top'), 10);
+  const padbottom = parseInt($footer.css('padding-bottom'), 10);
   $footer.height(newheight + fpad);
-  // reset body margin
-  padtop = parseInt($footer.css('padding-top'), 10);
-  padbottom = parseInt($footer.css('padding-bottom'), 10);
   jQuery('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
 }
 
 // Reposition floating buttons
 function matchFloatingButtons() {
-  const floatBtn = jQuery('.btn-float');
+  const $floatBtn = jQuery('.btn-float');
   const screenWidth = jQuery('header').width();
-  if (screenWidth >= 992 && floatBtn.length > 1) {
-    floatBtn.each(function (i) {
+  if (screenWidth >= 992 && $floatBtn.length > 1) {
+    $floatBtn.each(function (i) {
       jQuery(this).css('right', `${(90 + 60 * i).toString()}px`);
     });
   }
