@@ -21,7 +21,8 @@
  * @author Alex Urban <alexander.urban@ligo.org>
  */
 
-/* global $footer:writeable, fpad:writeable, padtop:writeable, padbottom:writeable */
+/* ------------------------------------------------------------------------- */
+/* Actions on window load or resize                                          */
 
 // Match page position to navbar height
 function matchPageTopToNavbar() {
@@ -30,29 +31,27 @@ function matchPageTopToNavbar() {
 
 // Match footer height to content
 function matchFooterHeight() {
-  // get container dimensions
+  const $footer = jQuery('.footer');
+  const fpad = $footer.outerHeight() - $footer.height();
   const newheight = jQuery('.footer > .container').outerHeight();
-  // reset footer height
-  $footer = jQuery('.footer');
-  fpad = $footer.outerHeight() - $footer.height();
+  const padtop = parseInt($footer.css('padding-top'), 10);
+  const padbottom = parseInt($footer.css('padding-bottom'), 10);
   $footer.height(newheight + fpad);
-  // reset body margin
-  padtop = parseInt($footer.css('padding-top'), 10);
-  padbottom = parseInt($footer.css('padding-bottom'), 10);
   jQuery('body').css('margin-bottom', $footer.outerHeight() + padtop + padbottom);
 }
 
 // Reposition floating buttons
 function matchFloatingButtons() {
-  const floatBtn = jQuery('.btn-float');
+  const $floatBtn = jQuery('.btn-float');
   const screenWidth = jQuery('header').width();
-  if (screenWidth >= 992 && floatBtn.length > 1) {
-    floatBtn.each(function (i) {
+  if (screenWidth >= 992 && $floatBtn.length > 1) {
+    $floatBtn.each(function (i) {
       jQuery(this).css('right', `${(90 + 60 * i).toString()}px`);
     });
   }
 }
 
+// Now we're cooking with gas
 jQuery(window).on('load', () => {
   matchPageTopToNavbar();
   matchFooterHeight();
@@ -64,6 +63,55 @@ jQuery(window).resize(() => {
   matchFloatingButtons();
 });
 
+/* ------------------------------------------------------------------------- */
+/* Event listeners when the document is ready                                */
+
+// Download a CSV table
+function downloadCSV(csv, filename) {
+  const csvFile = new Blob([csv], { type: 'text/csv' });
+  const downloadLink = document.createElement('a');
+  downloadLink.download = filename;
+  downloadLink.href = window.URL.createObjectURL(csvFile);
+  downloadLink.style.display = 'none';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+}
+
+// Export a table to CSV
+function exportTableToCSV(ev) {
+  const filename = jQuery(ev).attr('data-filename');
+  const tableId = jQuery(ev).attr('data-table-id');
+  const csv = [];
+  const table = document.getElementById(tableId);
+  const rows = table.querySelectorAll('table tr');
+  // get table rows
+  for (let i = 0; i < rows.length; i += 1) {
+    const row = [];
+    const cols = rows[i].querySelectorAll('td, th');
+    for (let j = 0; j < cols.length; j += 1) { row.push(cols[j].innerText); }
+    csv.push(row.join(','));
+  }
+  downloadCSV(csv.join('\n'), filename);
+}
+
+// Expose alternative image types
+function showImage(ev) {
+  const captions = jQuery(ev).attr('data-captions');
+  const channelName = jQuery(ev).attr('data-channel-name');
+  const imageDir = jQuery(ev).attr('data-image-dir');
+  const imageType = jQuery(ev).attr('data-image-type');
+  const tRanges = jQuery(ev).attr('data-t-ranges');
+  for (let i = 0; i < tRanges.length; i += 1) {
+    const idBase = `${channelName}_${tRanges[i]}`;
+    const fileName = `${channelName}-${imageType}-${tRanges[i]}.png`;
+    const filePath = `${imageDir}/${fileName}`;
+    jQuery(`#a_${idBase}`).attr('href', filePath);
+    jQuery(`#a_${idBase}`).attr('title', captions[i]);
+    jQuery(`#img_${idBase}`).attr('alt', fileName);
+    jQuery(`#img_${idBase}`).attr('src', filePath);
+  }
+}
+
 // Include a return-to-top button
 jQuery.fn.scrollView = function scrollView() {
   return this.each(() => {
@@ -73,8 +121,25 @@ jQuery.fn.scrollView = function scrollView() {
   });
 };
 
-// Expand fancybox plots
+// Now we're cooking with gas
 jQuery(document).ready(() => {
+  jQuery('.btn-table').click(exportTableToCSV);
+  jQuery('.image-switch').click(showImage);
+  jQuery('#top-btn').click(function () {
+    jQuery(this).scrollView();
+  });
+
+  // lazy loading for pages with lots of images
+  jQuery('.lazy').Lazy({
+    scrollDirection: 'vertical',
+    effect: 'fadeIn',
+    visibleOnly: true,
+    onError: (element) => {
+      console.log(`error loading ${element.data('src')}`);
+    },
+  });
+
+  // expand fancybox plots
   jQuery('.fancybox').fancybox({
     nextEffect: 'none',
     prevEffect: 'none',
@@ -82,46 +147,3 @@ jQuery(document).ready(() => {
     helpers: { title: { type: 'inside' } },
   });
 });
-
-// Expose alternative image types
-// eslint-disable-next-line no-unused-vars
-function showImage(channelName, tRanges, imageType, captions) {
-  for (let i = 0; i < tRanges.length; i += 1) {
-    const idBase = `${channelName}_${tRanges[tRanges[i]]}`;
-    const fileBase = `${channelName}-${imageType}-${tRanges[tRanges[i]]}`;
-    document.getElementById(`a_${idBase}`).href = `plots/${fileBase}.png`;
-    document.getElementById(`a_${idBase}`).title = captions[tRanges[i]];
-    document.getElementById(`img_${idBase}`).src = `plots/${fileBase}.png`;
-    document.getElementById(`img_${idBase}`).alt = `${fileBase}.png`;
-  }
-}
-
-// Download a CSV table
-// eslint-disable-next-line no-unused-vars
-function downloadCSV(csv, filename) {
-  // set download attributes
-  const csvFile = new Blob([csv], { type: 'text/csv' });
-  const downloadLink = document.createElement('a');
-  downloadLink.download = filename;
-  downloadLink.href = window.URL.createObjectURL(csvFile);
-  downloadLink.style.display = 'none';
-  document.body.appendChild(downloadLink);
-  // download action
-  downloadLink.click();
-}
-
-// Export a table to CSV
-// eslint-disable-next-line no-unused-vars
-function exportTableToCSV(filename, tableId) {
-  const csv = [];
-  const table = document.getElementById(tableId);
-  const rows = table.querySelectorAll('table tr');
-  // get table rows
-  for (let i = 0; i < rows.length; i += 1) {
-    const row = []; const cols = rows[i].querySelectorAll('td, th');
-    for (let j = 0; j < cols.length; j += 1) { row.push(cols[j].innerText); }
-    csv.push(row.join(','));
-  }
-  // download CSV record
-  downloadCSV(csv.join('\n'), filename);
-}
