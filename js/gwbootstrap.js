@@ -87,8 +87,8 @@ jQuery(document).ready(() => {
 // eslint-disable-next-line no-unused-vars
 function showImage(channelName, tRanges, imageType, captions) {
   for (let i = 0; i < tRanges.length; i += 1) {
-    const idBase = `${channelName}_${tRanges[tRanges[i]]}`;
-    const fileBase = `${channelName}-${imageType}-${tRanges[tRanges[i]]}`;
+    const idBase = `${channelName}_${tRanges[i]}`;
+    const fileBase = `${channelName}-${imageType}-${tRanges[i]}`;
     document.getElementById(`a_${idBase}`).href = `plots/${fileBase}.png`;
     document.getElementById(`a_${idBase}`).title = captions[tRanges[i]];
     document.getElementById(`img_${idBase}`).src = `plots/${fileBase}.png`;
