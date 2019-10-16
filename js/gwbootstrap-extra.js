@@ -21,7 +21,9 @@
  * @author Alex Urban <alexander.urban@ligo.org>
  */
 
-/* global moment */
+/* global moment                                                             */
+/* globals matchPageTopToNavbar matchFooterHeight matchFloatingButtons       */
+/* globals exportTableToCSV                                                  */
 
 
 /* ------------------------------------------------------------------------- */
@@ -254,6 +256,11 @@ jQuery(window).on('load', function () {
   // shorten the date
   if (jQuery('#calendar').length) { shortenDate(); }
 
+  // resize and reposition
+  matchPageTopToNavbar();
+  matchFooterHeight();
+  matchFloatingButtons();
+
   // define inter-IFO links
   const thisbase = document.getElementsByTagName('base')[0].href;
   jQuery('[data-new-base]').each(function () {
@@ -286,18 +293,24 @@ jQuery(window).on('load', function () {
   // load the fancybox
   jQuery('.fancybox').fancybox({
     selector: '[data-fancybox-group="images"]',
-    nextEffect: 'none',
-    prevEffect: 'none',
-    width: 1200,
-    loop: true,
     backFocus: false,
-    iframe: { scrolling: 'no' },
-    scrolling: 'no',
     beforeShow: resizeFancyboxIframe,
+    buttons: [
+      'zoom',
+      'share',
+      'slideShow',
+      'download',
+      'thumbs',
+      'close',
+    ],
     helpers: {
       overlay: { locked: false },
       title: { type: 'inside' },
     },
+    iframe: { scrolling: 'no' },
+    loop: true,
+    scrolling: 'no',
+    width: 1200,
   });
 
   // custom fancybox for stamp-pem bokeh plot
@@ -354,6 +367,12 @@ jQuery(window).on('load', function () {
   jQuery('#overlay-figures').click(overlayFigures);
   jQuery('#download-overlay').click(downloadOverlay);
   jQuery('#clear-figures').click(clearFigures);
+
+  // misc. click events
+  jQuery('.btn-table').click(exportTableToCSV);
+  jQuery('#top-btn').click(function () {
+    jQuery(this).scrollView();
+  });
 });
 
 // Run after elements are loaded with AJAX
@@ -390,6 +409,11 @@ jQuery(document).ajaxComplete((ev, _0, _1) => {
 });
 
 jQuery(window).resize(() => {
-  // set short month date
+  // shorten the date
   if (jQuery('#calendar').length) { shortenDate(); }
+
+  // resize and reposition
+  matchPageTopToNavbar();
+  matchFooterHeight();
+  matchFloatingButtons();
 });
