@@ -61,10 +61,10 @@ jQuery(document).ready(() => {
 
   // expand fancybox plots
   jQuery('.fancybox').fancybox({
+    selector: '[data-fancybox="gallery"]',
     backFocus: false,
     buttons: [
       'zoom',
-      'share',
       'slideShow',
       'download',
       'thumbs',

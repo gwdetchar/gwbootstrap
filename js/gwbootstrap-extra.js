@@ -297,7 +297,6 @@ jQuery(window).on('load', function () {
     beforeShow: resizeFancyboxIframe,
     buttons: [
       'zoom',
-      'share',
       'slideShow',
       'download',
       'thumbs',
