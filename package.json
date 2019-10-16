@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
   "main": "lib/gwbootstrap.min.js",
-  "files": ["lib/*"],
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
     "unit": "npm run test",
     "lint": "bash scripts/lint.sh",

@@ -78,29 +78,27 @@ function downloadCSV(csv, filename) {
 }
 
 // Export a table to CSV
-function exportTableToCSV(ev) {
-  const filename = jQuery(ev).attr('data-filename');
-  const tableId = jQuery(ev).attr('data-table-id');
+function exportTableToCSV() {
   const csv = [];
-  const table = document.getElementById(tableId);
-  const rows = table.querySelectorAll('table tr');
-  // get table rows
-  for (let i = 0; i < rows.length; i += 1) {
-    const row = [];
-    const cols = rows[i].querySelectorAll('td, th');
-    for (let j = 0; j < cols.length; j += 1) { row.push(cols[j].innerText); }
-    csv.push(row.join(','));
-  }
+  const filename = jQuery(this).attr('data-filename');
+  const tableId = jQuery(this).attr('data-table-id');
+  jQuery(`#${tableId} > tbody > tr`).each((_i, row) => {
+    const newrow = [];
+    jQuery(row).children().each((_j, col) => {
+      newrow.push(jQuery(col).text());
+    });
+    csv.push(newrow.join(','));
+  });
   downloadCSV(csv.join('\n'), filename);
 }
 
 // Expose alternative image types
-function showImage(ev) {
-  const captions = jQuery(ev).attr('data-captions');
-  const channelName = jQuery(ev).attr('data-channel-name');
-  const imageDir = jQuery(ev).attr('data-image-dir');
-  const imageType = jQuery(ev).attr('data-image-type');
-  const tRanges = jQuery(ev).attr('data-t-ranges');
+function showImage() {
+  const captions = JSON.parse(jQuery(this).attr('data-captions'));
+  const tRanges = JSON.parse(jQuery(this).attr('data-t-ranges'));
+  const channelName = jQuery(this).attr('data-channel-name');
+  const imageType = jQuery(this).attr('data-image-type');
+  const imageDir = jQuery(this).attr('data-image-dir');
   for (let i = 0; i < tRanges.length; i += 1) {
     const idBase = `${channelName}_${tRanges[i]}`;
     const fileName = `${channelName}-${imageType}-${tRanges[i]}.png`;
