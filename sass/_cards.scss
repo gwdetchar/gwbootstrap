@@ -17,14 +17,14 @@
  * along with GW-Bootstrap.  If not, see <http://www.gnu.org/licenses/>
  */
 
-// _panels.scss
-// styling for accordion panels
+// _cards.scss
+// styling for accordion cards
 
 #accordion {
   padding-top: 10px;
 }
 
-.panel {
+.card {
   margin-top: 10px;
   padding: 0;
 
@@ -35,11 +35,7 @@
   }
 }
 
-.panel-primary .panel-heading {
-  color: #fff;
-}
-
-.panel-body {
+.card-body {
   padding-bottom: 5px;
 }
 

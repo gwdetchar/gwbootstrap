@@ -27,7 +27,7 @@ $navbar-color-focus: #fff;
 
 // set colour scheme
 @mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
-  @include background-panel($background-color, 51px);
+  @include background-card($background-color, 60px);
   // set background colour
   background-color: #fff;
 
@@ -262,8 +262,8 @@ $navbar-color-focus: #fff;
     }
   }
 
-  // format dropdown-menu items
-  .dropdown-menu > li {
+  // format dropdown-item
+  .dropdown-item {
     > ul {
       padding-left: 0;
     }
@@ -319,6 +319,6 @@ $navbar-color-focus: #fff;
 }
 
 // accommodate navbar height in main container
-.navbar-fixed-top + .container {
+.fixed-top + .container {
   padding-top: 50px;
 }
