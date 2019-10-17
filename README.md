@@ -74,7 +74,7 @@ order is important).
 <tr class="odd">
 <td><strong>JavaScript</strong></td>
 <td><p>jquery-3.4.1</p>
-<p>jquery.lazy-1.7.9</p>
+<p>jquery-lazy-1.7.9</p>
 <p>bootstrap-3.4.1</p>
 <p>fancybox-3.5.7</p>
 <p>gwbootstrap.min.js</p></td>
