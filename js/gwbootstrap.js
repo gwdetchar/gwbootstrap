@@ -65,8 +65,8 @@ jQuery(document).ready(() => {
     backFocus: false,
     buttons: [
       'zoom',
-      'slideShow',
       'download',
+      'slideShow',
       'thumbs',
       'close',
     ],
