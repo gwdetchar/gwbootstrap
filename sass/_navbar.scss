@@ -27,7 +27,7 @@ $navbar-color-focus: #fff;
 
 // set colour scheme
 @mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
-  @include background-card($background-color, 61px);
+  @include background-card($background-color, 100px);
   // set background colour
   background-color: #fff;
 
@@ -144,7 +144,6 @@ $navbar-color-focus: #fff;
   .navbar-nav > li > a,
   .navbar-nav > li > disabled > a {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
     padding-left: 6px;
@@ -153,10 +152,6 @@ $navbar-color-focus: #fff;
       padding-left: 10px;
       padding-right: 10px;
     }
-  }
-
-  .navbar-brand {
-    font-size: 16px;
   }
 
   .ifo-links {
@@ -320,5 +315,5 @@ $navbar-color-focus: #fff;
 
 // accommodate navbar height in main container
 .fixed-top + .container {
-  padding-top: 60px;
+  padding-top: 80px;
 }
