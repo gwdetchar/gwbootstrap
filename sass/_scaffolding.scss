@@ -40,14 +40,3 @@
     }
   }
 }
-
-.card .card-body {
-  border: 0;
-  border-radius: 0;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-  padding: 19px;
-
-  @media (min-width: $container-sm) {
-    border-radius: 2px;
-  }
-}
