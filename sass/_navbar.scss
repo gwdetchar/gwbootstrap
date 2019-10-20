@@ -27,7 +27,7 @@ $navbar-color-focus: #fff;
 
 // set colour scheme
 @mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
-  @include background-card($background-color, 100px);
+  @include background-card($background-color);
   // set background colour
   background-color: #fff;
 
@@ -314,6 +314,6 @@ $navbar-color-focus: #fff;
 }
 
 // accommodate navbar height in main container
-.fixed-top + .container {
+body {
   padding-top: 80px;
 }
