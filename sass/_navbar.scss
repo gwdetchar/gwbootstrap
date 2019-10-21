@@ -33,9 +33,7 @@ $navbar-color-focus: #fff;
 
   // format div
   .container-fluid > .navbar-collapse,
-  .container-fluid > .navbar-header,
-  .container > .navbar-collapse,
-  .container > .navbar-header {
+  .container > .navbar-collapse {
     margin-left: 0;
     margin-right: 0;
   }
@@ -49,17 +47,15 @@ $navbar-color-focus: #fff;
     color: $text-color;
   }
 
-  .navbar-nav > li > a,
-  .navbar-nav > li > disabled > a {
-    color: #777;
-    @media (min-width: $container-sm) {
-      color: $text-color;
-    }
+  .nav-item > a,
+  .nav-item > disabled > a {
+    color: $text-color;
+    font-weight: 500;
   }
 
   // set focus colours
-  a > navbar-brand,
-  a > navbar-text,
+  a .navbar-brand,
+  a .navbar-text,
   .step-forward,
   .step-back,
   #calendar {
@@ -71,98 +67,41 @@ $navbar-color-focus: #fff;
     }
   }
 
-  .nav .open > a,
-  .nav .open > a:hover,
-  .nav .open > a:active,
-  .nav .open > a:focus,
-  .navbar-nav > li > a:hover,
-  .navbar-nav > li > a:active,
-  .navbar-nav > li > a:focus,
-  .dropdown > a:hover,
-  .dropdown > a:active,
-  .dropdown > a:focus,
-  .dropdown.open a:hover,
-  .dropdown.open a:active,
-  .dropdown.open a:focus {
-    background-color: #f5f5f5;
-    color: #000;
-    @media (min-width: $container-sm) {
-      background-color: darken($background-color, 5%);
-      color: $text-focus-color;
-    }
+  .nav-item:hover,
+  .nav-item:active,
+  .nav-item:focus {
+    background-color: darken($background-color, 5%);
+    color: $text-focus-color;
   }
 
-  .dropdown-menu>.active>a,
-  .dropdown-menu>.active>a:focus,
-  .dropdown-menu>.active>a:hover {
-    background-color: lighten($background-color, 50%);
-    color: #000;
-    @media (min-width: $container-sm) {
-      background-color: $background-color;
-      color: $text-focus-color;
-    }
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: $background-color;
+    color: $text-focus-color;
   }
 
-  // format icon-bar
-  .navbar-toggle {
-    margin-right: 0;
-
-    > .icon-bar {
-      background-color: $text-color;
-    }
-
-    &:hover > .icon-bar {
-      background-color: $text-focus-color;
-    }
-  }
 }
 
 .navbar {
-
 
   // set colour scheme
   @include navbar-colour-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
   // set material-design-like shadow
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
 
-  /* set relative positioning to enable right-floating dropdown boxes */
-  > .container {
-    position: relative;
-  }
-
-  // format icon-bar
-  .navbar-toggle {
-    > .icon-bar {
-      margin-top: 2px;
-      width: 15px;
-    }
-  }
-
   // format navbar entries
   .navbar-brand,
   .navbar-text,
-  .navbar-nav > li > a,
-  .navbar-nav > li > disabled > a {
+  .nav-item > a,
+  .nav-item > disabled > a {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-weight: 500;
+    font-weight: 400;
     padding-left: 6px;
     padding-right: 6px;
     @media (min-width: $container-lg) {
       padding-left: 10px;
       padding-right: 10px;
-    }
-  }
-
-  .ifo-links {
-    .dropdown-header {
-      padding-left: 20px;
-      padding-right: 20px;
-      white-space: normal;
-    }
-    @media (min-width: $container-sm) {
-      position: absolute;
-      right: 0;
     }
   }
 
@@ -174,15 +113,10 @@ $navbar-color-focus: #fff;
     box-shadow: none;
   }
 
-  .dropdown-header {
-    font-weight: bold;
-  }
-
   // position dropdown menus relative to parent
   .dropdown-menu,
-  .navbar-nav .open .dropdown-menu {
+  .navbar-collapse.collapse.show .dropdown-menu {
     @include no-text-select();
-    cursor: pointer;
     padding: {
       left: 0;
       top: 5px;
@@ -198,14 +132,13 @@ $navbar-color-focus: #fff;
     }
   }
 
-  .navbar-nav .open {
+  .navbar-collapse.collapse.show > .navbar-nav {
     @media (max-width: $container-lg + -1px) {
       border-bottom: 0 none;
 
       .dropdown-menu {
         border: {
           bottom: 1px solid #808080;
-          radius: 0;
           top: 1px solid #808080;
         }
       }
@@ -259,24 +192,16 @@ $navbar-color-focus: #fff;
 
   // format dropdown-item
   .dropdown-item {
-    > ul {
-      padding-left: 0;
-    }
+    color: inherit;
+    display: block;
+    font-weight: inherit;
+    padding: 3px 20px;
+    padding-left: 0;
+    padding-right: 0;
+    text-decoration: none;
 
-    > ul:last-child {
-      padding-right: 0;
-    }
-
-    a {
-      color: inherit;
-      display: block;
-      font-weight: inherit;
-      padding: 3px 20px;
-      text-decoration: none;
-
-      &:hover {
-        font-weight: bold;
-      }
+    &:hover {
+      font-weight: bold;
     }
   }
 
