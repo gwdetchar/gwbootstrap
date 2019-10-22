@@ -28,7 +28,7 @@
 
 // Match page position to navbar height
 function matchPageTopToNavbar() {
-  jQuery('.fixed-top + .container').css('padding-top', jQuery('header').height());
+  jQuery('.fixed-top + .container-fluid').css('padding-top', jQuery('header').height());
 }
 
 // Match footer height to content

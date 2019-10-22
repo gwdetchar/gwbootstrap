@@ -69,6 +69,7 @@ $navbar-color-focus: #fff;
   // set focus colours
   a .navbar-brand,
   a .navbar-text,
+  .nav-item,
   .step-forward,
   .step-back,
   #calendar {
@@ -78,13 +79,6 @@ $navbar-color-focus: #fff;
       background-color: darken($background-color, 5%);
       color: $text-focus-color;
     }
-  }
-
-  .nav-item:hover,
-  .nav-item:active,
-  .nav-item:focus {
-    background-color: darken($background-color, 5%);
-    color: $text-focus-color;
   }
 
   .dropdown-item:hover,
@@ -130,6 +124,8 @@ $navbar-color-focus: #fff;
   .dropdown-menu,
   .navbar-collapse.collapse.show .dropdown-menu {
     @include no-text-select();
+    max-height: 700px;
+    overflow-y: scroll;
     padding: {
       left: 0;
       top: 5px;
@@ -138,23 +134,11 @@ $navbar-color-focus: #fff;
       left: 0;
       top: 1px;
     }
-    border: {
-      top: 1px solid #ccc;
-      top-left-radius: 0;
-      top-right-radius: 0;
-    }
   }
 
   .navbar-collapse.collapse.show > .navbar-nav {
     @media (max-width: $container-lg + -1px) {
       border-bottom: 0 none;
-
-      .dropdown-menu {
-        border: {
-          bottom: 1px solid #808080;
-          top: 1px solid #808080;
-        }
-      }
     }
   }
 
@@ -208,9 +192,7 @@ $navbar-color-focus: #fff;
     color: inherit;
     display: block;
     font-weight: inherit;
-    padding: 3px 20px;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 6px 20px;
     text-decoration: none;
 
     &:hover {
@@ -219,12 +201,6 @@ $navbar-color-focus: #fff;
   }
 
   // format multi-column dropdown menu
-  .dropdown-1-col {
-    max-height: 700px;
-    overflow-y: scroll;
-    white-space: nowrap;
-  }
-
   .dropdown-2-col {
     @media (min-width: $container-sm) {
       min-width: 320px;
