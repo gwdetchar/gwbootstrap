@@ -50,7 +50,18 @@ $navbar-color-focus: #fff;
   .nav-item > a,
   .nav-item > disabled > a {
     color: $text-color;
-    font-weight: 500;
+
+    &:hover,
+    &:active,
+    &:focus {
+      font-weight: 500;
+      @media (max-width: $container-md + -1) {
+        outline: none;
+      }
+      @media (min-width: $container-md) {
+        outline: 2px solid lighten($background-color, 20%);
+      }
+    }
   }
 
   .navbar-toggler-icon {
@@ -136,9 +147,14 @@ $navbar-color-focus: #fff;
     }
   }
 
-  .navbar-collapse.collapse.show > .navbar-nav {
-    @media (max-width: $container-lg + -1px) {
-      border-bottom: 0 none;
+  .navbar-collapse.collapse.show {
+    max-height: 280px;
+    overflow-y: auto;
+
+    > .navbar-nav {
+      @media (max-width: $container-lg + -1px) {
+        border-bottom: 0 none;
+      }
     }
   }
 
