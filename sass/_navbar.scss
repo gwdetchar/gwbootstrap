@@ -54,6 +54,8 @@ $navbar-color-focus: #fff;
     &:hover,
     &:active,
     &:focus {
+      background-color: darken($background-color, 5%);
+      color: $text-focus-color;
       font-weight: 500;
       @media (max-width: $container-md + -1) {
         outline: none;
@@ -80,7 +82,6 @@ $navbar-color-focus: #fff;
   // set focus colours
   a .navbar-brand,
   a .navbar-text,
-  .nav-item,
   .step-forward,
   .step-back,
   #calendar {
