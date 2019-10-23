@@ -253,6 +253,17 @@ jQuery(window).on('load', function () {
   jQuery.ui.dialog.prototype._focusTabbable = function () {};
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();
 
+  // lazy loading for pages with lots of images
+  jQuery('.lazy').Lazy({
+    effect: 'fadeIn',
+    effectTime: 1000,
+    visibleOnly: true,
+    scrollDirection: 'vertical',
+    onError: (element) => {
+      console.log(`Error loading ${element.data('src')}`);
+    },
+  });
+
   // shorten the date
   if (jQuery('#calendar').length) { shortenDate(); }
 
@@ -297,8 +308,8 @@ jQuery(window).on('load', function () {
     beforeShow: resizeFancyboxIframe,
     buttons: [
       'zoom',
-      'slideShow',
       'download',
+      'slideShow',
       'thumbs',
       'close',
     ],
@@ -329,14 +340,13 @@ jQuery(window).on('load', function () {
     if (jQuery(document).width() < 992) {
       return;
     }
-    // otherwise add pull-right
+    // otherwise add float-right
     const target = jQuery(this).nextAll('.dropdown-menu');
     const dropleft = jQuery(this).offset().left;
     const dropwidth = target.width();
     const left = jQuery(window).width();
-    const offright = (dropleft + dropwidth > left);
-    if (offright) {
-      target.addClass('pull-right');
+    if (dropleft + dropwidth > left) {
+      target.addClass('float-right');
     }
   });
 
@@ -384,15 +394,15 @@ jQuery(document).ajaxComplete((ev, _0, _1) => {
   jQuery('.btn').tooltip();
 
   // make figure elements draggable
-  jQuery('.img-responsive').draggable({
+  jQuery('.img-fluid').draggable({
     helper: 'clone',
     scroll: false,
-    stack: '.img-responsive',
+    stack: '.img-fluid',
   });
 
   // handle figure drop events
   jQuery('#overlay-btn').droppable({
-    accept: '.img-responsive',
+    accept: '.img-fluid',
     classes: { 'ui-droppable-active': 'ui-state-highlight' },
     tolerance: 'pointer',
     drop(_, ui) {

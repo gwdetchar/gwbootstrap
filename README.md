@@ -79,9 +79,9 @@ order is important).
 <p>fancybox-3.5.7</p>
 <p>gwbootstrap.min.js</p></td>
 <td><p>jquery-3.4.1</p>
+<p>jquery-lazy-1.7.9</p>
 <p>jquery-ui-1.12.1</p>
 <p>moment.js-2.24.0</p>
-<p>moment-timezone-0.5.26</p>
 <p>bootstrap-3.4.1</p>
 <p>fancybox-3.5.7</p>
 <p>bootstrap-datepicker-1.9.0</p>

@@ -25,22 +25,20 @@ $navbar-background-color-dark: darken($navbar-background-color, 5%);
 $navbar-color: #eee;
 $navbar-color-focus: #fff;
 
-// set colour scheme
-@mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
-  @include background-panel($background-color, 51px);
-  // set background colour
+// set color scheme
+@mixin navbar-color-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
+  @include background-nav($background-color);
+  // set background color
   background-color: #fff;
 
   // format div
   .container-fluid > .navbar-collapse,
-  .container-fluid > .navbar-header,
-  .container > .navbar-collapse,
-  .container > .navbar-header {
+  .container > .navbar-collapse {
     margin-left: 0;
     margin-right: 0;
   }
 
-  // set text colour
+  // set text color
   .navbar-brand,
   .navbar-text,
   .step-forward,
@@ -49,17 +47,41 @@ $navbar-color-focus: #fff;
     color: $text-color;
   }
 
-  .navbar-nav > li > a,
-  .navbar-nav > li > disabled > a {
-    color: #777;
-    @media (min-width: $container-sm) {
-      color: $text-color;
+  .nav-item > a,
+  .nav-item > disabled > a {
+    color: $text-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($background-color, 5%);
+      color: $text-focus-color;
+      font-weight: 500;
+      @media (max-width: $container-md + -1) {
+        outline: none;
+      }
+      @media (min-width: $container-md) {
+        outline: 2px solid lighten($background-color, 20%);
+      }
     }
   }
 
-  // set focus colours
-  a > navbar-brand,
-  a > navbar-text,
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .navbar-toggler {
+    border-color: rgb(255, 255, 255);
+
+    &:hover,
+    &:focus {
+      background-color: darken($background-color, 5%);
+    }
+  }
+
+  // set focus colors
+  a .navbar-brand,
+  a .navbar-text,
   .step-forward,
   .step-back,
   #calendar {
@@ -71,103 +93,33 @@ $navbar-color-focus: #fff;
     }
   }
 
-  .nav .open > a,
-  .nav .open > a:hover,
-  .nav .open > a:active,
-  .nav .open > a:focus,
-  .navbar-nav > li > a:hover,
-  .navbar-nav > li > a:active,
-  .navbar-nav > li > a:focus,
-  .dropdown > a:hover,
-  .dropdown > a:active,
-  .dropdown > a:focus,
-  .dropdown.open a:hover,
-  .dropdown.open a:active,
-  .dropdown.open a:focus {
-    background-color: #f5f5f5;
-    color: #000;
-    @media (min-width: $container-sm) {
-      background-color: darken($background-color, 5%);
-      color: $text-focus-color;
-    }
-  }
-
-  .dropdown-menu>.active>a,
-  .dropdown-menu>.active>a:focus,
-  .dropdown-menu>.active>a:hover {
-    background-color: lighten($background-color, 50%);
-    color: #000;
-    @media (min-width: $container-sm) {
-      background-color: $background-color;
-      color: $text-focus-color;
-    }
-  }
-
-  // format icon-bar
-  .navbar-toggle {
-    margin-right: 0;
-
-    > .icon-bar {
-      background-color: $text-color;
-    }
-
-    &:hover > .icon-bar {
-      background-color: $text-focus-color;
-    }
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: $background-color;
+    color: $text-focus-color;
   }
 }
 
 .navbar {
 
-
-  // set colour scheme
-  @include navbar-colour-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
+  // set color scheme
+  @include navbar-color-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
   // set material-design-like shadow
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
-
-  /* set relative positioning to enable right-floating dropdown boxes */
-  > .container {
-    position: relative;
-  }
-
-  // format icon-bar
-  .navbar-toggle {
-    > .icon-bar {
-      margin-top: 2px;
-      width: 15px;
-    }
-  }
 
   // format navbar entries
   .navbar-brand,
   .navbar-text,
-  .navbar-nav > li > a,
-  .navbar-nav > li > disabled > a {
+  .nav-item > a,
+  .nav-item > disabled > a {
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
     -webkit-font-smoothing: antialiased;
-    font-weight: 500;
+    font-weight: 400;
     padding-left: 6px;
     padding-right: 6px;
     @media (min-width: $container-lg) {
       padding-left: 10px;
       padding-right: 10px;
-    }
-  }
-
-  .navbar-brand {
-    font-size: 16px;
-  }
-
-  .ifo-links {
-    .dropdown-header {
-      padding-left: 20px;
-      padding-right: 20px;
-      white-space: normal;
-    }
-    @media (min-width: $container-sm) {
-      position: absolute;
-      right: 0;
     }
   }
 
@@ -179,15 +131,12 @@ $navbar-color-focus: #fff;
     box-shadow: none;
   }
 
-  .dropdown-header {
-    font-weight: bold;
-  }
-
   // position dropdown menus relative to parent
   .dropdown-menu,
-  .navbar-nav .open .dropdown-menu {
+  .navbar-collapse.collapse.show .dropdown-menu {
     @include no-text-select();
-    cursor: pointer;
+    max-height: 700px;
+    overflow-y: scroll;
     padding: {
       left: 0;
       top: 5px;
@@ -196,23 +145,15 @@ $navbar-color-focus: #fff;
       left: 0;
       top: 1px;
     }
-    border: {
-      top: 1px solid #ccc;
-      top-left-radius: 0;
-      top-right-radius: 0;
-    }
   }
 
-  .navbar-nav .open {
-    @media (max-width: $container-lg + -1px) {
-      border-bottom: 0 none;
+  .navbar-collapse.collapse.show {
+    max-height: 280px;
+    overflow-y: auto;
 
-      .dropdown-menu {
-        border: {
-          bottom: 1px solid #808080;
-          radius: 0;
-          top: 1px solid #808080;
-        }
+    > .navbar-nav {
+      @media (max-width: $container-lg + -1px) {
+        border-bottom: 0 none;
       }
     }
   }
@@ -262,26 +203,16 @@ $navbar-color-focus: #fff;
     }
   }
 
-  // format dropdown-menu items
-  .dropdown-menu > li {
-    > ul {
-      padding-left: 0;
-    }
+  // format dropdown-item
+  .dropdown-item {
+    color: inherit;
+    display: block;
+    font-size: 14px;
+    font-weight: inherit;
+    text-decoration: none;
 
-    > ul:last-child {
-      padding-right: 0;
-    }
-
-    a {
-      color: inherit;
-      display: block;
-      font-weight: inherit;
-      padding: 3px 20px;
-      text-decoration: none;
-
-      &:hover {
-        font-weight: bold;
-      }
+    &:hover {
+      font-weight: bold;
     }
   }
 
@@ -315,10 +246,9 @@ $navbar-color-focus: #fff;
       min-width: 960px;
     }
   }
-
 }
 
 // accommodate navbar height in main container
-.navbar-fixed-top + .container {
-  padding-top: 50px;
+body {
+  padding-top: 80px;
 }
