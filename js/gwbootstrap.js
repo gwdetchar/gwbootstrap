@@ -55,7 +55,7 @@ jQuery(document).ready(() => {
     visibleOnly: true,
     scrollDirection: 'vertical',
     onError: (element) => {
-      console.log(`error loading ${element.data('src')}`);
+      console.log(`Error loading ${element.data('src')}`);
     },
   });
 
