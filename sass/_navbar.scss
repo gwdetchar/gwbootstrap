@@ -25,10 +25,10 @@ $navbar-background-color-dark: darken($navbar-background-color, 5%);
 $navbar-color: #eee;
 $navbar-color-focus: #fff;
 
-// set colour scheme
-@mixin navbar-colour-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
-  @include background-card($background-color);
-  // set background colour
+// set color scheme
+@mixin navbar-color-scheme($background-color, $text-color: #eee, $text-focus-color: #fff) {
+  @include background-nav($background-color);
+  // set background color
   background-color: #fff;
 
   // format div
@@ -38,7 +38,7 @@ $navbar-color-focus: #fff;
     margin-right: 0;
   }
 
-  // set text colour
+  // set text color
   .navbar-brand,
   .navbar-text,
   .step-forward,
@@ -79,7 +79,7 @@ $navbar-color-focus: #fff;
     }
   }
 
-  // set focus colours
+  // set focus colors
   a .navbar-brand,
   a .navbar-text,
   .step-forward,
@@ -98,13 +98,12 @@ $navbar-color-focus: #fff;
     background-color: $background-color;
     color: $text-focus-color;
   }
-
 }
 
 .navbar {
 
-  // set colour scheme
-  @include navbar-colour-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
+  // set color scheme
+  @include navbar-color-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
   // set material-design-like shadow
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
 
@@ -247,7 +246,6 @@ $navbar-color-focus: #fff;
       min-width: 960px;
     }
   }
-
 }
 
 // accommodate navbar height in main container

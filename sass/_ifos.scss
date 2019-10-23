@@ -18,15 +18,39 @@
  */
 
 // _ifos.scss
-// IFO-specific colour schemes
+// IFO-specific color schemes
 
-// set colour scheme for each IFO
-.navbar-h1 { @include navbar-colour-scheme(#ee0000); }  // LIGO Hanford
-.navbar-l1 { @include navbar-colour-scheme(#4ba6ff); }  // LIGO Livingston
-.navbar-v1 { @include navbar-colour-scheme(#9b59b6); }  // Virgo
-.navbar-g1 { @include navbar-colour-scheme(#555); }     // GEO600
-.navbar-k1 { @include navbar-colour-scheme(#ffb200); }  // KAGRA
-.navbar-i1 { @include navbar-colour-scheme(#2ecc71); }  // LIGO India
+$color-h1: #e00;      // LIGO-Hanford
+$color-l1: #4ba6ff;   // LIGO-Livingston
+$color-v1: #9b59b6;   // Virgo
+$color-g1: #555;      // GEO600
+$color-k1: #ffb200;   // KAGRA
+$color-i1: #2ecc71;   // LIGO-India
+$color-network: #688; // GWO network
 
-// colour scheme for network pages
-.navbar-network { @include navbar-colour-scheme(#668888); }
+// navbar color schemes
+.navbar-h1 { @include navbar-color-scheme($color-h1); }
+.navbar-l1 { @include navbar-color-scheme($color-l1); }
+.navbar-v1 { @include navbar-color-scheme($color-v1); }
+.navbar-g1 { @include navbar-color-scheme($color-g1); }
+.navbar-k1 { @include navbar-color-scheme($color-k1); }
+.navbar-i1 { @include navbar-color-scheme($color-i1); }
+.navbar-network { @include navbar-color-scheme($color-network); }
+
+// btn color schemes
+.btn-h1 { @include btn-color-scheme($color-h1); }
+.btn-l1 { @include btn-color-scheme($color-l1); }
+.btn-v1 { @include btn-color-scheme($color-v1); }
+.btn-g1 { @include btn-color-scheme($color-g1); }
+.btn-k1 { @include btn-color-scheme($color-k1); }
+.btn-i1 { @include btn-color-scheme($color-i1); }
+.btn-network { @include btn-color-scheme($color-network); }
+
+// card color schemes
+.card-h1 { @include card-color-scheme($color-h1); }
+.card-l1 { @include card-color-scheme($color-l1); }
+.card-v1 { @include card-color-scheme($color-v1); }
+.card-g1 { @include card-color-scheme($color-g1); }
+.card-k1 { @include card-color-scheme($color-k1); }
+.card-i1 { @include card-color-scheme($color-i1); }
+.card-network { @include card-color-scheme($color-network); }
