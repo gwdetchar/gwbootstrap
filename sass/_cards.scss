@@ -21,7 +21,7 @@
 // styling for bootstrap cards
 
 @mixin btn-color-scheme($ifo-color, $btn-text-color: #fff) {
-  background-color: lighten($ifo-color, 10%);
+  background-color: mix(#fff, $ifo-color, 20%);
   border-color: $ifo-color;
   color: $btn-text-color;
 
@@ -34,33 +34,23 @@
 
   &:focus,
   &.focus {
-    box-shadow: 0 0 0 0.2rem lighten($ifo-color, 30%);
+    box-shadow: 0 0 0 0.2rem rgba($ifo-color, 0.5);
   }
 }
 
 @mixin card-color-scheme($ifo-color) {
-  border-color: lighten($ifo-color, 10%);
+  border-color: $ifo-color;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
 
   h5 > a {
     color: inherit;
-    text-decoration: none;
   }
 
   // set header colors
   .card-header {
-    background-color: lighten($ifo-color, 48%);
-    border-color: lighten($ifo-color, 10%);
-    color: darken($ifo-color, 5%);
+    background-color: mix(#fff, $ifo-color, 85%);
+    border-color: $ifo-color;
+    color: mix(#000, $ifo-color, 10%);
     padding-bottom: 2px;
-  }
-
-  .card-title {
-    font-weight: 500;
-  }
-
-  // set btn colors
-  .btn {
-    @include btn-color-scheme($ifo-color);
   }
 }

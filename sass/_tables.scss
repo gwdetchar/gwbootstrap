@@ -63,3 +63,16 @@ table {
     border-bottom: 0;
   }
 }
+
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid mix(#000, #dee2e6, 10%);
+}
+
+.table-bordered thead {
+  td,
+  th {
+    border-bottom-color: mix(#000, #dee2e6, 10%);
+  }
+}
