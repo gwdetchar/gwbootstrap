@@ -24,6 +24,7 @@ html,
 body {
   background-color: #eee;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
   font-weight: 300;
 }
 
@@ -34,7 +35,6 @@ h4,
 h5,
 h6 {
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
 
@@ -67,12 +67,9 @@ img {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.23), 0 2px 5px rgba(0, 0, 0, 0.16);
 }
 
-.center-text {
-  text-align: center;
-}
-
 // container widths
-.container {
+.container,
+.container-fluid {
   width: 97%;
   @media (max-width: $container-md + -1px) {
     max-width: 991px;
@@ -84,6 +81,12 @@ img {
   @media (min-width: $container-lg) {
     max-width: 1400px;
   }
+}
+
+// links to the LIGO Channel Information System (CIS)
+.cis-link {
+  color: inherit;
+  font-family: Monaco, 'Courier New', monospace;
 }
 
 // floating buttons
