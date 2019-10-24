@@ -71,12 +71,6 @@ img {
   text-align: center;
 }
 
-.desktop-only {
-  @media (max-width: $container-md + -1px) {
-    display: none;
-  }
-}
-
 // container widths
 .container {
   width: 97%;
