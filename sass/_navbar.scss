@@ -61,7 +61,7 @@ $navbar-color-focus: #fff;
         outline: none;
       }
       @media (min-width: $container-md) {
-        outline: 2px solid mix(#fff, $background-color, 40%);
+        outline: 2px solid mix(#fff, $background-color, 90%);
       }
     }
   }
@@ -112,7 +112,6 @@ $navbar-color-focus: #fff;
   .nav-item > a,
   .nav-item > disabled > a {
     font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
     font-weight: 400;
     padding-left: 6px;
     padding-right: 6px;
@@ -128,6 +127,10 @@ $navbar-color-focus: #fff;
 
   .btn-group.open .dropdown-toggle {
     box-shadow: none;
+  }
+
+  .dropdown-header {
+    font-weight: 500;
   }
 
   // position dropdown menus relative to parent
