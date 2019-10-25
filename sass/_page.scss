@@ -83,6 +83,12 @@ img {
 .cis-link {
   color: inherit;
   font-family: Monaco, 'Courier New', monospace;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+  }
 }
 
 // floating buttons
