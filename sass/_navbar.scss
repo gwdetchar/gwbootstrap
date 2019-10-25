@@ -103,8 +103,6 @@ $navbar-color-focus: #fff;
 .navbar {
   // set color scheme
   @include navbar-color-scheme($navbar-background-color, $navbar-color, $navbar-color-focus);
-  // set material-design-like shadow
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
 
   // format navbar entries
   .navbar-brand,
@@ -123,10 +121,6 @@ $navbar-color-focus: #fff;
 
   .btn-group {
     margin-bottom: 0;
-  }
-
-  .btn-group.open .dropdown-toggle {
-    box-shadow: none;
   }
 
   .dropdown-header {

@@ -40,18 +40,19 @@
 
 @mixin card-color-scheme($ifo-color) {
   border-color: $ifo-color;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
 
   // set header colors
   .card-header {
     background-color: mix(#fff, $ifo-color, 90%);
     border-color: $ifo-color;
     color: mix(#000, $ifo-color, 20%);
+    padding-bottom: 0;
   }
 }
 
-.card .card-header {
-  padding-bottom: 0;
+.card-header .card-link {
+  color: inherit;
+  font-weight: 500;
 }
 
 .btn-outline-secondary {
@@ -61,7 +62,10 @@
 
   &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &.focus,
+  &:disabled,
+  &.disabled {
     background-color: #555;
     color: #fff;
   }

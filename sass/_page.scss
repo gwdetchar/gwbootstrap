@@ -59,10 +59,6 @@ img {
   margin: 0 auto;
 }
 
-.alert {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.23), 0 2px 5px rgba(0, 0, 0, 0.16);
-}
-
 // container widths
 .container,
 .container-fluid {
@@ -118,7 +114,6 @@ img {
     border: 2px solid #555;
     border-radius: 100%;
     bottom: 37px;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.23), 0 1px 10px rgba(0, 0, 0, 0.16);
     // text elements
     color: #555;
     cursor: pointer;
