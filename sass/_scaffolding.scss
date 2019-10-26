@@ -26,7 +26,7 @@
   // place dividers between the plots
   @media (min-width: $container-md) {
     .row > div::after {
-      background: #eee;
+      background: #f6f6f6;
       bottom: 20%;
       content: '';
       height: 60%;
