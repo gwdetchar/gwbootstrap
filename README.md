@@ -114,45 +114,45 @@ classes:
 </tr>
 <tr class="even">
 <td>H1</td>
-<td>`navbar-h1`</td>
-<td>`btn-h1`</td>
-<td>`card-h1`</td>
+<td>navbar-h1</td>
+<td>btn-h1</td>
+<td>card-h1</td>
 </tr>
 <tr class="odd">
 <td>L1</td>
-<td>`navbar-l1`</td>
-<td>`btn-l1`</td>
-<td>`card-l1`</td>
+<td>navbar-l1</td>
+<td>btn-l1</td>
+<td>card-l1</td>
 </tr>
 <tr class="even">
 <td>V1</td>
-<td>`navbar-v1`</td>
-<td>`btn-v1`</td>
-<td>`card-v1`</td>
+<td>navbar-v1</td>
+<td>btn-v1</td>
+<td>card-v1</td>
 </tr>
 <tr class="odd">
 <td>G1</td>
-<td>`navbar-g1`</td>
-<td>`btn-g1`</td>
-<td>`card-g1`</td>
+<td>navbar-g1</td>
+<td>btn-g1</td>
+<td>card-g1</td>
 </tr>
 <tr class="even">
 <td>K1</td>
-<td>`navbar-k1`</td>
-<td>`btn-k1`</td>
-<td>`card-k1`</td>
+<td>navbar-k1</td>
+<td>btn-k1</td>
+<td>card-k1</td>
 </tr>
 <tr class="odd">
 <td>I1</td>
-<td>`navbar-i1`</td>
-<td>`btn-i1`</td>
-<td>`card-i1`</td>
+<td>navbar-i1</td>
+<td>btn-i1</td>
+<td>card-i1</td>
 </tr>
 <tr class="even">
 <td>Network</td>
-<td>`navbar-network`</td>
-<td>`btn-network`</td>
-<td>`card-network`</td>
+<td>navbar-network</td>
+<td>btn-network</td>
+<td>card-network</td>
 </tr>
 </tbody>
 </table>
