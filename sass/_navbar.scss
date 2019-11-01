@@ -98,9 +98,11 @@ $navbar-color-focus: #fff;
   .dropdown-item.state {
     &:hover,
     &:active,
+    &.active,
     &:focus {
       background-color: $background-color;
       color: $text-focus-color;
+      font-weight: bold;
     }
   }
 }
@@ -214,10 +216,6 @@ $navbar-color-focus: #fff;
     font-size: 14px;
     font-weight: inherit;
     text-decoration: none;
-
-    &:hover {
-      font-weight: bold;
-    }
   }
 
   // format multi-column dropdown menu
