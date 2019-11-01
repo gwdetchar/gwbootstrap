@@ -14,3 +14,10 @@ rules:
   max-nesting-depth: 4
   selector-max-compound-selectors: 5
   selector-max-id: 2
+  selector-no-qualifying-type:
+    -
+      true
+    -
+      ignore:
+        -
+          'class'

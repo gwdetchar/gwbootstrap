@@ -28,7 +28,7 @@
 
 // Match page position to navbar height
 function matchPageTopToNavbar() {
-  jQuery('.fixed-top + .container-fluid').css('padding-top', jQuery('header').height());
+  jQuery('.fixed-top + .container-fluid').css('padding-top', jQuery('nav').height());
 }
 
 // Match footer height to content
@@ -45,7 +45,7 @@ function matchFooterHeight() {
 // Reposition floating buttons
 function matchFloatingButtons() {
   const $floatBtn = jQuery('.btn-float');
-  const screenWidth = jQuery('header').width();
+  const screenWidth = jQuery('nav').width();
   if (screenWidth >= 992 && $floatBtn.length > 1) {
     $floatBtn.each(function (i) {
       jQuery(this).css('right', `${(90 + 60 * i).toString()}px`);

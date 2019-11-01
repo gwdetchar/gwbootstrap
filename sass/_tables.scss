@@ -20,6 +20,10 @@
 // _tables.scss
 // styling for HTML tables
 
+caption {
+  caption-side: top;
+}
+
 table {
   tr > tdiv {
     border-top: 1px solid #ccc;

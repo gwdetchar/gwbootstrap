@@ -253,17 +253,6 @@ jQuery(window).on('load', function () {
   jQuery.ui.dialog.prototype._focusTabbable = function () {};
   jQuery.fn.bootstrapBtn = jQuery.fn.button.noConflict();
 
-  // lazy loading for pages with lots of images
-  jQuery('.lazy').Lazy({
-    effect: 'fadeIn',
-    effectTime: 1000,
-    visibleOnly: true,
-    scrollDirection: 'vertical',
-    onError: (element) => {
-      console.log(`Error loading ${element.data('src')}`);
-    },
-  });
-
   // shorten the date
   if (jQuery('#calendar').length) { shortenDate(); }
 

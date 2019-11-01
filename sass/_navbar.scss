@@ -61,7 +61,7 @@ $navbar-color-focus: #fff;
         outline: none;
       }
       @media (min-width: $container-md) {
-        outline: 2px solid mix(#fff, $background-color, 90%);
+        outline: 1px solid mix(#fff, $background-color, 90%);
       }
     }
   }
@@ -80,8 +80,7 @@ $navbar-color-focus: #fff;
   }
 
   // set focus colors
-  a .navbar-brand,
-  a .navbar-text,
+  a.navbar-brand,
   .step-forward,
   .step-back,
   #calendar {
@@ -90,13 +89,19 @@ $navbar-color-focus: #fff;
     &:focus {
       background-color: mix(#000, $background-color, 20%);
       color: $text-focus-color;
+      font-weight: 500;
+      outline: none;
     }
   }
 
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    background-color: $background-color;
-    color: $text-focus-color;
+  .dropdown-item,
+  .dropdown-item.state {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $background-color;
+      color: $text-focus-color;
+    }
   }
 }
 
@@ -124,7 +129,8 @@ $navbar-color-focus: #fff;
   }
 
   .dropdown-header {
-    font-weight: 500;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
   }
 
   // position dropdown menus relative to parent
@@ -192,8 +198,9 @@ $navbar-color-focus: #fff;
     .dropdown-header {
       padding-left: 20px;
       padding-right: 20px;
-      white-space: normal;;
+      white-space: normal;
     }
+
     @media (min-width: $container-sm) {
       position: absolute;
       right: 0;
@@ -214,6 +221,12 @@ $navbar-color-focus: #fff;
   }
 
   // format multi-column dropdown menu
+  .dropdown-1-col {
+    @media (min-width: $container-sm) {
+      min-width: 160px;
+    }
+  }
+
   .dropdown-2-col {
     @media (min-width: $container-sm) {
       min-width: 320px;
