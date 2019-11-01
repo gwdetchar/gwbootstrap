@@ -94,9 +94,9 @@ gwbootstrap-extra.min.js</td>
 
 ## Usage
 
-The primary advantage of `gwbootstrap` is that it provides interferometer-
-specific color styling for navbars, buttons, and cards through the following
-classes:
+The primary advantage of `gwbootstrap` is that it provides
+interferometer-specific color styling for navbars, buttons,
+and cards through the following classes:
 
 <table style="width:86%;">
 <colgroup>
