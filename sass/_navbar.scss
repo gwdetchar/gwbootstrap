@@ -32,18 +32,15 @@ $navbar-color-focus: #fff;
   background-color: #fff;
 
   // format div
-  .container-fluid > .navbar-collapse,
-  .container > .navbar-collapse {
+  .container > .navbar-collapse,
+  .container-fluid > .navbar-collapse {
     margin-left: 0;
     margin-right: 0;
   }
 
   // set text color
   .navbar-brand,
-  .navbar-text,
-  .step-forward,
-  .step-back,
-  #calendar {
+  .navbar-text {
     color: $text-color;
   }
 
@@ -80,10 +77,7 @@ $navbar-color-focus: #fff;
   }
 
   // set focus colors
-  a.navbar-brand,
-  .step-forward,
-  .step-back,
-  #calendar {
+  a.navbar-brand {
     &:hover,
     &:active,
     &:focus {
@@ -212,10 +206,11 @@ $navbar-color-focus: #fff;
   // format dropdown-item
   .dropdown-item {
     color: inherit;
-    display: block;
     font-size: 14px;
     font-weight: inherit;
     text-decoration: none;
+    white-space: normal;
+    word-wrap: break-word;
   }
 
   // format multi-column dropdown menu
@@ -254,9 +249,33 @@ $navbar-color-focus: #fff;
       min-width: 960px;
     }
   }
+
+  .dropdown-menu > .row {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .col-md,
+    > .col-md-1,
+    > .col-md-2,
+    > .col-md-3,
+    > .col-md-4,
+    > .col-md-5,
+    > .col-md-6,
+    > .col-md-7,
+    > .col-md-8,
+    > .col-md-9,
+    > .col-md-10,
+    > .col-md-11,
+    > .col-md-12,
+    > .col-md-auto {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 // accommodate navbar height in main container
-body {
+.fixed-top + .container,
+.fixed-top + .container-fluid {
   padding-top: 80px;
 }

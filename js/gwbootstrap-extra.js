@@ -335,7 +335,7 @@ jQuery(window).on('load', function () {
     const dropwidth = target.width();
     const left = jQuery(window).width();
     if (dropleft + dropwidth > left) {
-      target.addClass('float-right');
+      target.addClass('dropdown-menu-right');
     }
   });
 
