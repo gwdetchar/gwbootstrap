@@ -42,13 +42,19 @@
   font-weight: 400;
 }
 
+.ui-draggable:hover {
+  cursor: url('https://www.google.com/intl/en_ALL/mapfiles/openhand.cur'), all-scroll;
+  cursor: grab;
+}
+
 .ui-draggable-dragging {
-  cursor: url('https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur'), all-scroll;
+  cursor: url('https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur'), all-scroll !important;
   cursor: grabbing;
 }
 
-.ui-droppable-hover {
-  cursor: copy;
+.ui-droppable-hover,
+.ui-droppable-hover:hover {
+  cursor: copy !important;
 }
 
 // figure overlay dialog

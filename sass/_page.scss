@@ -136,12 +136,12 @@ strong {
     width: 50px;
     z-index: 99;
   }
-}
 
-.btn-float:hover {
-  @media (min-width: $container-md) {
-    background-color: #555;
-    border: 2px solid #fff;
-    color: #fff;
+  &:hover {
+    @media (min-width: $container-md) {
+      background-color: #555;
+      border: 2px solid #fff;
+      color: #fff;
+    }
   }
 }
