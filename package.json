@@ -1,6 +1,6 @@
 {
   "name": "gwbootstrap",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
   "main": "lib/gwbootstrap.min.js",
   "files": [
