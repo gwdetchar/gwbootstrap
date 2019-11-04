@@ -1,7 +1,7 @@
 # Bootstrap for GW Observatories
 
 This repository provides extensions to the standard
-[bootstrap-3.x](//github.com/gwdetchar/bootstrap/) styling, with specific
+[bootstrap-4.x](//github.com/twbs/bootstrap/) styling, with specific
 applications for the [GW-DetChar](//github.com/gwdetchar/gwdetchar/) and
 [GWSumm](//github.com/gwpy/gwsumm) suite of detector characterisation tools.
 
@@ -78,13 +78,13 @@ order is important).
 <td><strong>JavaScript</strong></td>
 <td>jquery-3.4.1<br>
 jquery-lazy-1.7.9<br>
-bootstrap-3.4.1<br>
+bootstrap-4.3.1<br>
 fancybox-3.5.7<br>
 gwbootstrap.min.js</td>
 <td>jquery-3.4.1<br>
 jquery-ui-1.12.1<br>
 moment.js-2.24.0<br>
-bootstrap-3.4.1<br>
+bootstrap-4.3.1<br>
 fancybox-3.5.7<br>
 bootstrap-datepicker-1.9.0<br>
 gwbootstrap-extra.min.js</td>
