@@ -1,6 +1,6 @@
 {
   "name": "gwbootstrap",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
   "main": "lib/gwbootstrap.min.js",
   "files": [
@@ -61,7 +61,7 @@
     "moment": "^2.24.0",
     "popper.js": "^1.16.0",
     "bootstrap": "^4.4.1",
-    "fancybox": "^3.0.1",
+    "@fancyapps/fancybox": "^3.5.7",
     "bootstrap-datepicker": "^1.9.0",
     "google-fonts": "^1.0.0"
   }
