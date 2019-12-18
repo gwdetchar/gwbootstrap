@@ -41,7 +41,7 @@ in your HTML:
 <script src="https://cdn.jsdelivr.net/npm/gwbootstrap@<version>/lib/gwbootstrap.min.js" type="text/javascript"></script>
 ```
 
-where `<version>` is the semantic version number, e.g. 1.1.0.
+where `<version>` is the semantic version number, e.g. 1.2.0.
 
 A heavier collection of more interactive features, including calendar
 view and a figure overlay tool, is available from the `gwbootstrap-extra`
@@ -77,7 +77,7 @@ order is important).
 <tr class="odd">
 <td><strong>JavaScript</strong></td>
 <td>jquery-3.4.1<br>
-jquery-lazy-1.7.9<br>
+jquery-lazy-1.7.10<br>
 bootstrap-4.4.1<br>
 fancybox-3.5.7<br>
 gwbootstrap.min.js</td>
