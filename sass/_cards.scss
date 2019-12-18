@@ -18,7 +18,7 @@
  */
 
 // _cards.scss
-// styling for bootstrap cards
+// styling for bootstrap cards and buttons
 
 @mixin btn-color-scheme($ifo-color, $btn-text-color: #fff) {
   background-color: mix(#fff, $ifo-color, 20%);
@@ -41,6 +41,16 @@
 
 @mixin card-color-scheme($ifo-color) {
   border-color: $ifo-color;
+
+  a {
+    color: $ifo-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: mix(#000, $ifo-color, 20%);
+    }
+  }
 
   // set header colors
   .card-header {
