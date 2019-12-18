@@ -1,0 +1,41 @@
+/*
+ * Copyright (C) Alex Urban (2019)
+ *
+ * This file is part of GW-Bootstrap
+ *
+ * GW-Bootstrap is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * GW-Bootstrap is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with GW-Bootstrap.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+// _alerts.scss
+// styling for bootstrap alerts
+
+@mixin alert-color-scheme($ifo-color) {
+  background-color: mix(#fff, $ifo-color, 95%);
+  border-color: mix(#fff, $ifo-color, 60%);
+  color: mix(#000, $ifo-color, 40%);
+
+  hr {
+    border-top-color: mix(#fff, $ifo-color, 20%);
+  }
+
+  .alert-link {
+    color: $ifo-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: mix(#000, $ifo-color, 20%);
+    }
+  }
+}
