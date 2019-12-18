@@ -78,13 +78,13 @@ order is important).
 <td><strong>JavaScript</strong></td>
 <td>jquery-3.4.1<br>
 jquery-lazy-1.7.9<br>
-bootstrap-4.3.1<br>
+bootstrap-4.4.1<br>
 fancybox-3.5.7<br>
 gwbootstrap.min.js</td>
 <td>jquery-3.4.1<br>
 jquery-ui-1.12.1<br>
 moment.js-2.24.0<br>
-bootstrap-4.3.1<br>
+bootstrap-4.4.1<br>
 fancybox-3.5.7<br>
 bootstrap-datepicker-1.9.0<br>
 gwbootstrap-extra.min.js</td>
