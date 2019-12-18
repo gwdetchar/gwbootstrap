@@ -54,3 +54,12 @@ $color-network: #688; // GWO network
 .card-k1 { @include card-color-scheme($color-k1); }
 .card-i1 { @include card-color-scheme($color-i1); }
 .card-network { @include card-color-scheme($color-network); }
+
+// alert color schemes
+.alert-h1 { @include alert-color-scheme($color-h1); }
+.alert-l1 { @include alert-color-scheme($color-l1); }
+.alert-v1 { @include alert-color-scheme($color-v1); }
+.alert-g1 { @include alert-color-scheme($color-g1); }
+.alert-k1 { @include alert-color-scheme($color-k1); }
+.alert-i1 { @include alert-color-scheme($color-i1); }
+.alert-network { @include alert-color-scheme($color-network); }
