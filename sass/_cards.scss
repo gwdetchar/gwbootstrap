@@ -42,7 +42,7 @@
 @mixin card-color-scheme($ifo-color) {
   border-color: $ifo-color;
 
-  a {
+  a:not(.cis-link):not(.dropdown-item) {
     color: $ifo-color;
 
     &:hover,
