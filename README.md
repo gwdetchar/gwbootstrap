@@ -41,7 +41,7 @@ in your HTML:
 <script src="https://cdn.jsdelivr.net/npm/gwbootstrap@<version>/lib/gwbootstrap.min.js" type="text/javascript"></script>
 ```
 
-where `<version>` is the semantic version number, e.g. 1.2.0.
+where `<version>` is the semantic version number, e.g. 1.2.1.
 
 A heavier collection of more interactive features, including calendar
 view and a figure overlay tool, is available from the `gwbootstrap-extra`
