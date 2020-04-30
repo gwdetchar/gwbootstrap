@@ -76,12 +76,12 @@ order is important).
 </tr>
 <tr class="odd">
 <td><strong>JavaScript</strong></td>
-<td>jquery-3.4.1<br>
+<td>jquery-3.5.0<br>
 jquery-lazy-1.7.10<br>
 bootstrap-4.4.1<br>
 fancybox-3.5.7<br>
 gwbootstrap.min.js</td>
-<td>jquery-3.4.1<br>
+<td>jquery-3.5.0<br>
 jquery-ui-1.12.1<br>
 moment.js-2.24.0<br>
 bootstrap-4.4.1<br>
