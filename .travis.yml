@@ -1,9 +1,7 @@
 language: sass
 
 before_install:
-  - npm cache clean --force
-  - npm install n
-  - n latest
+  - npm cache verify
   - npm install .
 
 script:

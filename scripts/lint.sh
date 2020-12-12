@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
-SCSS="stylelint --quiet sass/*.scss"
-JS="eslint --quiet js/*.js"
+SCSS="npx stylelint --quiet sass/*.scss"
+JS="npx eslint --quiet js/*.js"
 
 # loop over and execute linters
 declare -a Linters=("${SCSS}" "${JS}")
