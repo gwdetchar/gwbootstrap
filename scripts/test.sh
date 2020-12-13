@@ -16,10 +16,10 @@ CSSIN="sass/gwbootstrap.scss"
 CSSOUT="${TESTDIR}/gwbootstrap.min.css"
 
 # get babel and sass commands
-BABELCMD="npx babel --no-comments --compact --minified"
+BABELCMD="babel --no-comments --compact --minified"
 CMD1="${BABELCMD} --out-file ${LIGHTJS_OUT} ${COREJS} ${LIGHTJS}"
 CMD2="${BABELCMD} --out-file ${EXTRAJS_OUT} ${COREJS} ${EXTRAJS}"
-CMD3="npx sass --style compressed --no-source-map ${CSSIN} ${CSSOUT}"
+CMD3="sass --style compressed --no-source-map ${CSSIN} ${CSSOUT}"
 
 # build minified stylesheets and scripts
 declare -a Commands=("${CMD1}" "${CMD2}" "${CMD3}")
