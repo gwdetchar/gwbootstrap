@@ -1,7 +1,11 @@
-language: sass
+language: node_js
+
+node_js:
+  - node
 
 before_install:
   - npm install .
+  - npm cache verify
 
 script:
   - npm run test

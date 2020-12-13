@@ -25,7 +25,6 @@
 /* globals matchPageTopToNavbar matchFooterHeight matchFloatingButtons       */
 /* globals exportTableToCSV                                                  */
 
-
 /* ------------------------------------------------------------------------- */
 /* Calendar links                                                            */
 const regexDayURL = new RegExp('day/\\d{8}/');
