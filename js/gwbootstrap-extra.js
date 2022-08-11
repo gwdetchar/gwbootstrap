@@ -28,6 +28,7 @@
 /* ------------------------------------------------------------------------- */
 /* Calendar links                                                            */
 const regexDayURL = new RegExp('day/\\d{8}/');
+const regexWeekURL = new RegExp('week/\\d{8}/');
 const regexMonthURL = new RegExp('month/\\d{6}/');
 const regexYearURL = new RegExp('year/\\d{4}/');
 
@@ -35,6 +36,9 @@ function findDateFormat() {
   const url = window.location.href;
   if (regexDayURL.test(url)) {
     return 'day';
+  }
+  if (regexWeekURL.test(url)) {
+    return 'week';
   }
   if (regexMonthURL.test(url)) {
     return 'month';
@@ -50,6 +54,10 @@ function getPageDate() {
   const dateformat = findDateFormat();
   if (dateformat === 'day') {
     [, datestring] = String(regexDayURL.exec(window.location.href)).split('/');
+    return moment(datestring, 'YYYYMMDD');
+  }
+  if (dateformat === 'week') {
+    [, datestring] = String(regexWeekURL.exec(window.location.href)).split('/');
     return moment(datestring, 'YYYYMMDD');
   }
   if (dateformat === 'month') {
@@ -69,21 +77,25 @@ function moveToDate(ev) {
   let newurl;
   const url = window.location.href;
   const date = moment(ev.date);
-  // find new date format
-  if (ev.type === 'changeDate') {
-    newformat = `day/${date.format('YYYYMMDD')}/`;
-  } else if (ev.type === 'changeMonth') {
-    newformat = `month/${date.format('YYYYMM')}/`;
-  } else if (ev.type === 'changeYear') {
-    newformat = `year/${date.format('YYYY')}/`;
+  const dateformat = findDateFormat();
+  if (dateformat === 'day') {
+      newformat = `day/${date.format('YYYYMMDD')}/`;
+  } else if (dateformat === 'week') {
+      newformat = `week/${date.format('YYYYMMDD')}/`;
+  } else if (dateformat === 'month') {
+      newformat = `month/${date.format('YYYYMM')}/`;
+  } else if (dateformat === 'year') {
+      newformat = `year/${date.format('YYYY')}/`;
   }
   // work through starting formats and proceed
   if (regexDayURL.test(url)) {
     newurl = url.replace(regexDayURL, newformat);
+  } else if (regexWeekURL.test(url)) {
+    newurl = url.replace(regexWeekURL, newformat);
   } else if (regexMonthURL.test(url)) {
-    newurl = url.replace(regexDayURL, newformat);
+    newurl = url.replace(regexMonthURL, newformat);
   } else if (regexYearURL.test(url)) {
-    newurl = url.replace(regexDayURL, newformat);
+    newurl = url.replace(regexYearURL, newformat);
   } else if (window.location.href
                === document.getElementsByTagName('base')[0].href) {
     newurl = window.location.href + newformat;
@@ -100,14 +112,13 @@ function stepDate(step) {
     return;
   }
   const date = getPageDate();
-  const newdate = date.add(dateformat, step);
-  if (dateformat === 'day') {
-    moveToDate({ type: 'changeDate', date: newdate });
-  } else if (dateformat === 'month') {
-    moveToDate({ type: 'changeMonth', date: newdate });
-  } else if (dateformat === 'year') {
-    moveToDate({ type: 'changeYear', date: newdate });
+  let newdate;
+  if (dateformat === 'week') {
+    newdate = date.add(dateformat, step*7);
+  } else {
+    newdate = date.add(dateformat, step);
   }
+  moveToDate({ type: 'changeDate', date: newdate });
 }
 
 // Shorten date in calendar if very small screen
