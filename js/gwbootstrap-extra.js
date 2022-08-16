@@ -112,12 +112,7 @@ function stepDate(step) {
     return;
   }
   const date = getPageDate();
-  let newdate;
-  if (dateformat === 'week') {
-    newdate = date.add(dateformat, step*7);
-  } else {
-    newdate = date.add(dateformat, step);
-  }
+  const newdate = date.add(dateformat, step);
   moveToDate({ type: 'changeDate', date: newdate });
 }
 
