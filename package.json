@@ -1,6 +1,6 @@
 {
   "name": "gwbootstrap",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Extensions to standard Bootstrap stylesheets for gravitational wave observatories",
   "main": "lib/gwbootstrap.min.js",
   "files": [
@@ -28,11 +28,7 @@
     "CSS",
     "JavaScript"
   ],
-  "author": {
-    "name": "Alex Urban",
-    "email": "alexander.urban@ligo.org",
-    "url": "https://alurban.github.io"
-  },
+  "author": "Alex Urban <alexander.urban@ligo.org> (https://alurban.github.io)",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/gwdetchar/gwbootstrap/issues"
@@ -64,5 +60,8 @@
     "jquery-ui": "^1.12.1",
     "moment": "^2.29.1",
     "popper.js": "^1.16.1"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
