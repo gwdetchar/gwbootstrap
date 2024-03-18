@@ -78,14 +78,15 @@ function moveToDate(ev) {
   const url = window.location.href;
   const date = moment(ev.date);
   const dateformat = findDateFormat();
-  if (dateformat === 'day') {
-      newformat = `day/${date.format('YYYYMMDD')}/`;
-  } else if (dateformat === 'week') {
-      newformat = `week/${date.format('YYYYMMDD')}/`;
+  // default move to new date is day/YYYYMMDD
+  if (dateformat === 'week') {
+    newformat = `week/${date.format('YYYYMMDD')}/`;
   } else if (dateformat === 'month') {
-      newformat = `month/${date.format('YYYYMM')}/`;
+    newformat = `month/${date.format('YYYYMM')}/`;
   } else if (dateformat === 'year') {
-      newformat = `year/${date.format('YYYY')}/`;
+    newformat = `year/${date.format('YYYY')}/`;
+  } else {
+    newformat = `day/${date.format('YYYYMMDD')}/`;
   }
   // work through starting formats and proceed
   if (regexDayURL.test(url)) {
