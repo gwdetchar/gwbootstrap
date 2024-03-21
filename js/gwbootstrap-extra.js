@@ -297,8 +297,7 @@ jQuery(window).on('load', function () {
   });
 
   // load the fancybox
-  jQuery('.fancybox').fancybox({
-    selector: '[data-fancybox-group="images"]',
+  Fancybox.bind('[data-fancybox-group="images"]', {
     backFocus: false,
     beforeShow: resizeFancyboxIframe,
     buttons: [
@@ -319,7 +318,7 @@ jQuery(window).on('load', function () {
   });
 
   // custom fancybox for stamp-pem bokeh plot
-  jQuery('.fancybox-stamp').fancybox({
+  Fancybox.bind({
     width: 1000,
     height: 500,
     showNavArrows: false,
