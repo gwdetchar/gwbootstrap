@@ -1,7 +1,7 @@
 # Bootstrap for GW Observatories
 
 This repository provides extensions to the standard
-[bootstrap-4.x](//github.com/twbs/bootstrap/) styling, with specific
+[bootstrap-5.x](//github.com/twbs/bootstrap/) styling, with specific
 applications for the [GW-DetChar](//github.com/gwdetchar/gwdetchar/) and
 [GWSumm](//github.com/gwpy/gwsumm) suite of detector characterisation tools.
 
@@ -41,7 +41,7 @@ in your HTML:
 <script src="https://cdn.jsdelivr.net/npm/gwbootstrap@<version>/lib/gwbootstrap.min.js" type="text/javascript"></script>
 ```
 
-where `<version>` is the semantic version number, e.g. 1.3.1.
+where `<version>` is the semantic version number, e.g. 1.3.4.
 
 A heavier collection of more interactive features, including calendar
 view and a figure overlay tool, is available from the `gwbootstrap-extra`
@@ -76,16 +76,16 @@ order is important).
 </tr>
 <tr class="odd">
 <td><strong>JavaScript</strong></td>
-<td>jquery-3.5.0<br>
-jquery-lazy-1.7.10<br>
-bootstrap-4.4.1<br>
-fancybox-3.5.7<br>
+<td>jquery-3.7.1<br>
+jquery-lazy-1.7.11<br>
+bootstrap-5.3.3<br>
+fancybox-5.0.35<br>
 gwbootstrap.min.js</td>
-<td>jquery-3.5.0<br>
-jquery-ui-1.12.1<br>
-moment.js-2.24.0<br>
-bootstrap-4.4.1<br>
-fancybox-3.5.7<br>
+<td>jquery-3.7.1<br>
+jquery-ui-1.13.2<br>
+moment.js-2.30.1<br>
+bootstrap-5.3.3<br>
+fancybox-5.0.35<br>
 bootstrap-datepicker-1.9.0<br>
 gwbootstrap-extra.min.js</td>
 </tr>
