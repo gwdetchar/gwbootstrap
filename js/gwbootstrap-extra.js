@@ -298,23 +298,26 @@ jQuery(window).on('load', function () {
 
   // load the fancybox
   Fancybox.bind('[data-fancybox-group="images"]', {
-    backFocus: false,
-    beforeShow: resizeFancyboxIframe,
-    buttons: [
-      'zoom',
-      'download',
-      'slideShow',
-      'thumbs',
-      'close',
-    ],
-    helpers: {
-      overlay: { locked: false },
-      title: { type: 'inside' },
+    contentClick: 'toggleZoom',
+    placeFocusBack: false,
+    Images: {
+      initialSize: 'fit',
     },
-    iframe: { scrolling: 'no' },
-    loop: true,
-    scrolling: 'no',
-    width: 1200,
+    Thumbs: {
+      showOnStart: false,
+      type: 'classic',
+    },
+    Toolbar: {
+      display: {
+        right: [
+          'toggleZoom',
+          'download',
+          'slideshow',
+          'thumbs',
+          'close',
+        ],
+      },
+    },
   });
 
   // custom fancybox for stamp-pem bokeh plot

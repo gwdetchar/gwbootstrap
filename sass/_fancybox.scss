@@ -20,25 +20,11 @@
 // _fancybox.scss
 // styling for fancyboxes
 
-.fancybox {
-  max-width: 100%;
+.fancybox__container {
+  --fancybox-bg: #fff;
 }
 
-.fancybox-bg,
-.fancybox-skin {
-  background: #fff;
-}
-
-.fancybox-is-open .fancybox-bg {
-  opacity: 1;
-}
-
-.fancybox-nav {
-  height: 10%;
-  width: 5%;
-}
-
-.fancybox-title {
-  font-size: 16px;
-  text-align: center;
+.fancybox__toolbar {
+  text-shadow: none;
+  color: #333;
 }
