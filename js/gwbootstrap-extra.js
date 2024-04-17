@@ -25,6 +25,8 @@
 /* globals matchPageTopToNavbar matchFooterHeight matchFloatingButtons       */
 /* globals exportTableToCSV                                                  */
 
+import { Fancybox } from '@fancyapps/ui';
+
 /* ------------------------------------------------------------------------- */
 /* Calendar links                                                            */
 const regexDayURL = new RegExp('day/\\d{8}/');
@@ -136,7 +138,9 @@ function shortenDate() {
 /* Fancybox images                                                           */
 
 // Resize fancybox iframe to 'normal' proportions
-function resizeFancyboxIframe() {
+// EG: Removed since latest FancyApps already seems to do this. Code not removed
+//     in case we need to restore it
+/* function resizeFancyboxIframe() {
   const width = Math.min(1200, jQuery('.fancybox-skin').width());
   if (width > document.body.clientWidth) {
     jQuery('.fancybox-iframe').width(width - 40);
@@ -148,7 +152,7 @@ function resizeFancyboxIframe() {
   // set heights as half width
   jQuery('.fancybox-iframe').height(parseInt(jQuery('.fancybox-iframe').width() * 0.5, 10));
   jQuery('.fancybox-wrap').height(parseInt(jQuery('.fancybox-wrap').width() * 0.5, 10));
-}
+} */
 
 /* ------------------------------------------------------------------------- */
 /* Overlay figures                                                           */
