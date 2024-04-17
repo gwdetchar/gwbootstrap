@@ -21,6 +21,8 @@
  * @author Duncan Macleod <duncan.macleod@ligo.org>
  */
 
+import { Fancybox } from '@fancyapps/ui';
+
 /* globals matchPageTopToNavbar matchFooterHeight matchFloatingButtons       */
 /* globals exportTableToCSV showImage                                        */
 
