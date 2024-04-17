@@ -343,7 +343,7 @@ jQuery(window).on('load', function () {
     const dropwidth = target.width();
     const left = jQuery(window).width();
     if (dropleft + dropwidth > left) {
-      target.addClass('dropdown-menu-right');
+      target.addClass('dropdown-menu-end');
     }
   });
 
