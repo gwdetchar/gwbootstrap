@@ -60,17 +60,26 @@ jQuery(document).ready(() => {
   });
 
   // expand fancybox plots
-  jQuery('.fancybox').fancybox({
-    selector: '[data-fancybox="gallery"]',
-    backFocus: false,
-    buttons: [
-      'zoom',
-      'download',
-      'slideShow',
-      'thumbs',
-      'close',
-    ],
-    helpers: { title: { type: 'inside' } },
-    width: 1200,
+  Fancybox.bind('[data-fancybox="gallery"]', {
+    contentClick: 'toggleZoom',
+    placeFocusBack: false,
+    Images: {
+      initialSize: 'fit',
+    },
+    Thumbs: {
+      showOnStart: false,
+      type: 'classic',
+    },
+    Toolbar: {
+      display: {
+        right: [
+          'toggleZoom',
+          'download',
+          'slideshow',
+          'thumbs',
+          'close',
+        ],
+      },
+    },
   });
 });
