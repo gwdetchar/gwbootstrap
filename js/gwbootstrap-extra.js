@@ -25,8 +25,6 @@
 /* globals matchPageTopToNavbar matchFooterHeight matchFloatingButtons       */
 /* globals exportTableToCSV                                                  */
 
-import { Fancybox } from '@fancyapps/ui';
-
 /* ------------------------------------------------------------------------- */
 /* Calendar links                                                            */
 const regexDayURL = new RegExp('day/\\d{8}/');
