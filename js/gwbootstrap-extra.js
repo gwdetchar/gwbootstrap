@@ -291,10 +291,10 @@ jQuery(window).on('load', function () {
   }
 
   // step to correct date
-  jQuery('.step-forward').click(() => {
+  jQuery('.step-forward').on('click', () => {
     stepDate(1);
   });
-  jQuery('.step-back').click(() => {
+  jQuery('.step-back').on('click', () => {
     stepDate(-1);
   });
 
@@ -334,7 +334,7 @@ jQuery(window).on('load', function () {
   });
 
   // reposition dropdown if scrolling off the screen
-  jQuery('.dropdown-toggle').click(function () {
+  jQuery('.dropdown-toggle').on('click', function () {
     // if page width is small, no-operation
     if (jQuery(document).width() < 992) {
       return;
@@ -366,31 +366,34 @@ jQuery(window).on('load', function () {
   });
 
   // open dialog
-  jQuery('.btn-open').click(function () {
+  jQuery('.btn-open').on('click', function () {
     const id = jQuery(this).data('id');
     jQuery(id).dialog('open');
   });
 
   // overlay actions
-  jQuery('#overlay-figures').click(overlayFigures);
-  jQuery('#download-overlay').click(downloadOverlay);
-  jQuery('#clear-figures').click(clearFigures);
+  jQuery('#overlay-figures').on('click', overlayFigures);
+  jQuery('#download-overlay').on('click', downloadOverlay);
+  jQuery('#clear-figures').on('click', clearFigures);
 
   // misc. click events
-  jQuery('.btn-table').click(exportTableToCSV);
-  jQuery('#top-btn').click(function () {
+  jQuery('.btn-table').on('click', exportTableToCSV);
+  jQuery('#top-btn').on('click', function () {
     jQuery(this).scrollView();
   });
 });
 
 // Run after elements are loaded with AJAX
-jQuery(document).ajaxComplete((ev, _0, _1) => {
+jQuery(document).on('ajaxComplete', (ev, _0, _1) => {
   // custom tooltips
   jQuery('.fancybox').tooltip();
   jQuery('.fancybox-stamp').tooltip();
   jQuery('.icon-bar a').tooltip();
   jQuery('.btn-float').tooltip();
   jQuery('.btn').tooltip();
+
+  // misc. click events
+  jQuery('.btn-table').on('click', exportTableToCSV);
 
   // make figure elements draggable
   jQuery('.img-fluid').draggable({

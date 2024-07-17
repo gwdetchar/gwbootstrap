@@ -42,9 +42,9 @@ jQuery(window).resize(() => {
 /* Event listeners when the document is ready                                */
 
 jQuery(document).ready(() => {
-  jQuery('.btn-table').click(exportTableToCSV);
-  jQuery('.image-switch').click(showImage);
-  jQuery('#top-btn').click(function () {
+  jQuery('.btn-table').on('click', exportTableToCSV);
+  jQuery('.image-switch').on('click', showImage);
+  jQuery('#top-btn').on('click', function () {
     jQuery(this).scrollView();
   });
 
