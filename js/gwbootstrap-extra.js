@@ -132,6 +132,44 @@ function shortenDate() {
   }
 }
 
+
+/* ------------------------------------------------------------------------- */
+/* Summary Pages custom buttons                                              */
+
+  /**
+   * Creates an HTML button element with an SVG icon.
+   *
+   * @param {string} label - The label used for the button's class and data attributes.
+   * @param {string} title - The title attribute for the button.
+   * @param {string} svgPathData - The SVG path data used to draw the icon inside the button.
+   * @returns {string} - The HTML string representing the button with the SVG icon.
+   */
+
+  function createButton(label, title, svgPathData) {
+    const buttonHTML = 
+        '<button class="f-button fancybox-button--' + label + '" data-fancybox-' + label + ' title="' + title + '">' +
+            '<svg viewBox="0 0 40 40">' +
+                '<path d="' + svgPathData + '" />' +
+            '</svg>' +
+        '</button>';
+    
+    return buttonHTML;
+}
+  /**
+   * Checks if the current date format is a calendar format.
+   *
+   * This function retrieves the current date format
+   * and checks if it is one of the calendar formats:
+   * 'day', 'week', 'month', or 'year'.
+   *
+   * @returns {boolean} - Returns true if the date format is a calendar format, otherwise false.
+   */
+  function isCalendarFormat() {
+    const dateformat = findDateFormat();
+    const periodicFormats = ['day', 'week', 'month', 'year'];
+    return periodicFormats.includes(dateformat);
+  }
+
 /* ------------------------------------------------------------------------- */
 /* Fancybox images                                                           */
 
@@ -331,6 +369,62 @@ jQuery(window).on('load', function () {
     title: this.title,
     href: jQuery(this).attr('href'),
     type: 'iframe',
+  });
+
+
+  /**
+   * Initializes Fancybox for elements with the `data-fancybox="summary"` attribute.
+   * This configuration is specifically designed for Summary Pages.
+   *
+   * Binds Fancybox to gallery items and customizes the toolbar with two buttons:
+   * - A "previousDay" button for navigating to the previous day.
+   * - A "nextDay" button for navigating to the next day.
+   *
+   * Clicking either button updates the page URL to reflect the selected date.
+   * As the gallery image is open, the new page will automatically open the 
+   * gallery with the same image number.
+   * 
+   * The new buttons are just created for the calendar data formats:
+   * 'day', 'week', 'month', or 'year'.
+   */
+
+
+  Fancybox.bind('[data-fancybox="summary"]', {
+      contentClick: 'toggleZoom',
+      placeFocusBack: false,
+      Images: {
+        initialSize: 'fit',
+      },
+      Thumbs: {
+        showOnStart: false,
+        type: 'classic',
+      },
+      Toolbar: {
+        items: {
+            ...(isCalendarFormat() && {
+                previousDay: {
+                  tpl: createButton('previousDay', 'Previous Date', 'M25 10 L15 20 L25 30'), 
+                  click: () => {
+                        stepDate(-1);
+                    },
+                },
+                nextDay: {
+                  tpl: createButton('nextDay', 'Next Date', 'M15 10 L25 20 L15 30'),
+                  click: () => {
+                      stepDate(1);
+                  },
+              },
+            }),
+        },
+        display: {
+          ...(isCalendarFormat() && { middle: ["previousDay", "nextDay"] }),
+          right: [
+                'toggleZoom',
+                'download',
+                'slideshow',
+            ],
+        },
+    }
   });
 
   // reposition dropdown if scrolling off the screen
