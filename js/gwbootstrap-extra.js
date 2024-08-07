@@ -402,13 +402,13 @@ jQuery(window).on('load', function () {
       Toolbar: {
         items: {
             ...(isCalendarFormat() && {
-                previousDay: {
+                previousDate: {
                   tpl: createButton('previousDate', 'Previous Date', 'M25 10 L15 20 L25 30'), 
                   click: () => {
                         stepDate(-1);
                     },
                 },
-                nextDay: {
+                nextDate: {
                   tpl: createButton('nextDate', 'Next Date', 'M15 10 L25 20 L15 30'),
                   click: () => {
                       stepDate(1);
@@ -417,11 +417,13 @@ jQuery(window).on('load', function () {
             }),
         },
         display: {
-          ...(isCalendarFormat() && { middle: ["previousDate", "nextDate"] }),
+          middle: isCalendarFormat() ? ["previousDate", "nextDate"] : [],
           right: [
-                'toggleZoom',
-                'download',
-                'slideshow',
+            'toggleZoom',
+            'download',
+            'slideshow',
+            'thumbs',
+            'close',
             ],
         },
     }
