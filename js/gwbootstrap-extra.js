@@ -403,13 +403,13 @@ jQuery(window).on('load', function () {
         items: {
             ...(isCalendarFormat() && {
                 previousDay: {
-                  tpl: createButton('previousDay', 'Previous Date', 'M25 10 L15 20 L25 30'), 
+                  tpl: createButton('previousDate', 'Previous Date', 'M25 10 L15 20 L25 30'), 
                   click: () => {
                         stepDate(-1);
                     },
                 },
                 nextDay: {
-                  tpl: createButton('nextDay', 'Next Date', 'M15 10 L25 20 L15 30'),
+                  tpl: createButton('nextDate', 'Next Date', 'M15 10 L25 20 L15 30'),
                   click: () => {
                       stepDate(1);
                   },
@@ -417,7 +417,7 @@ jQuery(window).on('load', function () {
             }),
         },
         display: {
-          ...(isCalendarFormat() && { middle: ["previousDay", "nextDay"] }),
+          ...(isCalendarFormat() && { middle: ["previousDate", "nextDate"] }),
           right: [
                 'toggleZoom',
                 'download',
