@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/gwdetchar/gwbootstrap#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
+    "@babel/cli": "^8.1.0",
     "eslint": "^9.39.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-standard": "^17.1.0",
